@@ -1,0 +1,110 @@
+\errorcontextlines 999999
+\usepackage[ngerman]{babel}
+
+\usepackage[%
+    sopra-listings={encoding,cpalette,highlights},%
+    sopra-tables, color-palettes={addons},%
+    lecture-bibliography={biber,style=numeric-comp},%
+    util, lithie-boxes={germanenv,koma,overwrite},%
+    lithie-task-boxes={cpalette}, lecture-links={patchurl},%
+    lecture-personal-resize,
+    lecture-registers={disable}% would interfere with beamer
+]{lithie-util}
+
+\usepackage{forest}
+
+\makeatletter
+\sol@list@define@styles{%
+  {keywordA: \@declaredcolor{sol@colors@lst@keywordA}\bfseries},%
+  {keywordC: \@declaredcolor{sol@colors@lst@keywordB}\bfseries},%
+}
+\makeatother
+
+\RestyleAlgo{plain}
+\lstset{lineskip=5.5pt}
+\lstfs{10}
+
+\DefinePalette{Traversals}
+{Orange,orangenfarben: RGB(255, 131, 53)}% Cadmium orange
+{Grün,grünlich: RGB(143, 201, 58)}
+{Gelb,gelblich: RGB(255, 200, 87)}
+{Blau,bläulich: RGB(0, 114, 187)}
+\SetShadeContrast{45}
+\UsePalette{Traversals}
+
+\usetheme[libs,nofootfade,centerfoot]{dividing-lines}
+\SetColorProfile*{paletteA}{paletteB}{paletteC}
+
+\usetikzlibrary{arrows.meta,decorations,decorations.pathreplacing,shapes.multipart,tikzmark,shapes.symbols}
+
+\def\info#1{\bgroup\scriptsize\textcolor{gray}{(#1)}\egroup}
+\SetAllLinkStyle{#1}
+\def\fillfont{\def\mdseries@sf{medium}\sffamily}
+\colorlet{lgray}{lightgray!48!white}
+\tikzset{
+    ldesc/.style={gray,font=\sffamily\sbfamily},
+    lrel/.style={fill=white,rounded corners,minimum width=28mm,minimum height=7.5mm,align=center},
+    lrel2/.style={fill=white,rounded corners,minimum width=28mm,minimum height=7.5mm*2,align=center},
+    lsf/.style={fill=white,rounded corners,minimum width=28mm,minimum height=7.5mm*2,align=center,
+        rectangle split, rectangle split parts=2},
+    blob/.style={circle,draw, minimum size=1.9em,align=center},
+    lblob/.style={blob,writ,font=\fillfont,#1},%
+    lblob/.default={fill=lgray, draw=lgray,text=black},
+    every picture/.append style={line join=round,line cap=round},%
+    every node/.append style={font=\sffamily},%
+    lblock/.style={block,writ,font=\fillfont,#1},%
+    lblock/.default={fill=lgray, draw=lgray,text=black},
+    block/.style={rectangle,draw, align=center, minimum height=1.25em,rounded corners=1.55pt},%
+}
+
+\newcommand\parallelcontent[3][t]{%
+    \begin{columns}[#1]
+    \begin{column}{.475\linewidth}#2\end{column}\hfill
+    \begin{column}{.475\linewidth}#3\end{column}
+    \end{columns}
+}
+
+\usepackage[glows]{tikzpingus}
+\usetikzlibrary{decorations.text,graphs}
+\hypersetup{colorlinks=false}
+
+\title{Traversierungsvarianten}
+\subtitle{Verwandte Besuchen: Wie, wann und wo ein gutes Kind zu\\den geliebten Eltern rennt.}
+\institute{SP, Universität Ulm}
+
+\author{Florian Sihler}
+\email{florian.sihler@uni-ulm.de}
+
+\date{\today}
+\outro{Ulm, \today}
+\license[]{All rights reserved}
+
+\def\PreTitlepage{\begingroup%
+\let\oldinserttitle\inserttitle% allow it to be white on second slide
+\let\oldinsertsubtitle\insertsubtitle% allow it to be white on second slide
+\colorlet{PINGU@WHITE}{pingu@white}% hacksies for the whites
+\only<2|handout:2>{\def\inserttitle{\color{pingu@white}\oldinserttitle}\def\insertsubtitle{\textcolor{pingu@white}{\oldinsertsubtitle}}}%
+\onslide<2|handout:2>{%
+\savebox0{\tikz{\pingu[lightsaber left=paletteC!90!white,left item angle=-20,right eye wink,monocle left,right wing grab,bow tie=paletteA!90!black, pants=paletteA,body=paletteA!20!black,lightsaber left length=2.35cm,lightsaber left outer glow factor=.09,hat]}}%
+\begin{tikzpicture}[overlay,remember picture]%
+    % beamer does not support changes of full background easily. so we do hacksies
+    \pgfonlayer{background}
+    \path[fill,black!99] (current page.north west) rectangle (current page.south east);
+    \endpgfonlayer
+    \node[above right=.15cm,scale=.65,xshift=.15cm] (pingu) at(current page.south west) {\usebox0};
+    \node[below right,pingu@white,text width=.6\paperwidth,align=flush left] at(pingu.north east){Officially supported by the Ping-to-the-u-\allowbreak Foundation for Emotional Support. Look out for others so they may waddle with you!};
+\end{tikzpicture}}%
+}
+\def\PostTitlepage{\endgroup}
+
+\addbibresource{./references.bib}
+
+
+\setcounter{tocdepth}{4}
+\newsavebox\pinguA \newsavebox\pinguB \newsavebox\pinguC
+
+\usepackage[link]{qrcode}
+\outroright{\smash{\raisebox{1.33cm/2}{\qrcode[height=1.33cm]{https://github.com/EagleoutIce/Episode-Traversierung}}}\begin{tikzpicture}[remember picture,overlay]
+    \node[above left,btdl@color@white,scale=.475] at (current page.south east) {\href{https://github.com/EagleoutIce/Episode-Traversierung}{Slides and \LaTeX-sources on GitHub!}};
+\end{tikzpicture}}
+\hfuzz=5cm

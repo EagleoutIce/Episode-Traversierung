@@ -1,0 +1,15 @@
+\input{preamble}
+
+\begin{document}
+\section{Initiales}
+\SidebarCite{gh:tikzpingus}
+\begin{frame}{Disclaimer}
+    \begin{itemize}[<+(1)->]
+        \itemsep12pt
+        \item
+    \end{itemize}
+\end{frame}
+\SidebarReset
+
+
+\end{document}
