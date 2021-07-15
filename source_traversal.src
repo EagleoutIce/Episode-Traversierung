@@ -1,15 +1,76 @@
 \input{preamble}
 
 \begin{document}
-\section{Initiales}
+\section{Bäume}
+\subsection{Begrifflichkeiten}
 \SidebarCite{gh:tikzpingus}
-\begin{frame}{Disclaimer}
-    \begin{itemize}[<+(1)->]
-        \itemsep12pt
-        \item
-    \end{itemize}
+\SidebarCite{gh:episode-heaps}
+\begin{frame}{Der Baum}
+\onslide<2->{\centering\heap{%
+    [42,name=root[19,name=inner1[7,name=inner2[3,name=leaf1][-2,name=leaf2]][8,name=leaf3]][-5,name=inner3[-9,name=leaf4]]]%
+    \only<12-|handout:2>{\scope[opacity=.5]}
+    \onslide<3->{\fill[shadeA] (root.north)++(0,2mm) circle [radius=2.15pt] node[left=1.65mm,paletteA,font=\sbfamily] (dr) {Wurzel};
+    \node[below=-4pt,gray,font=\scriptsize\itshape] at (dr.south) {root};}
+    \pgfinterruptboundingbox
+    \onslide<4->{\fill[shadeB] (inner1.north)++(0,2mm) circle [radius=2.15pt] node[left=1.65mm,paletteB,font=\sbfamily] (di) {Innerer Knoten};
+    \node[below=-4pt,gray,font=\scriptsize\itshape] at (di.south) {inner node};
+    \foreach\i in {2,3} {\fill[shadeB] (inner\i.north)++(0,2mm) circle [radius=2.15pt];}}
+    \onslide<5->{\fill[shadeD] (leaf1.west)++(-2mm,0) circle [radius=2.15pt] node[left=1.65mm,paletteD,font=\sbfamily] (dl) {Blatt};
+    \node[below=-4pt,gray,font=\scriptsize\itshape] at (dl.south) {leaf};
+    \foreach\i in {2,3,4} {\fill[shadeD] (leaf\i.west)++(-2mm,0) circle [radius=2.15pt];}}
+    \endpgfinterruptboundingbox
+    \onslide<7->{
+        \node[right=1.25cm,gray] (niveau) at (dr-|inner3) {\textbf{Ebene}};
+    }
+    \pgfonlayer{background}
+    \only<12-|handout:2>{\scope[opacity=.5]}
+        \foreach[count=\i] \x in {root,inner1,leaf3,leaf1} {
+            \onslide<\the\numexpr\i+7\relax->{
+                \node[gray,font=\sbfamily] (dn\i) at(\x-|niveau) {\the\numexpr\i-1\relax};
+                \draw[lgray!90!white,densely dashed, very thick] (dn\i.west) -- (dl.west|-dn\i.west);
+            }
+        }
+    \only<12-|handout:2>{\endscope}
+    \onslide<13-|handout:2>{%
+        \scope[paletteC]
+        \fill (root) circle[radius=1.4em];
+        \fill (inner3) circle[radius=1.4em];
+        \fill (leaf4) circle[radius=1.4em];
+        \draw[line width=3pt+.3em] (root) -- (inner3) -- (leaf4);
+        \node[left=3mm,font=\sbfamily] (db) at(inner3.west) {Zweig};
+        \node[below=-4pt,gray,font=\scriptsize\itshape] at (db.south) {branch};
+        \endscope
+    }
+    \endpgfonlayer
+    \only<12-|handout:2>{\endscope}
+}}
+\end{frame}
+
+\begin{frame}{Der rekursive Baum}
+
 \end{frame}
 \SidebarReset
+
+\section{Graphen}
+\begin{frame}
+
+\end{frame}
+
+\section{Labyrinthe}
+\begin{frame}
+
+\end{frame}
+
+\section{Implementation}
+\begin{frame}
+
+\end{frame}
+
+
+\section{Abschluss}
+\begin{frame}
+
+\end{frame}
 
 
 \end{document}

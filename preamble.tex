@@ -26,7 +26,7 @@
 
 \DefinePalette{Traversals}
 {Orange,orangenfarben: RGB(255, 131, 53)}% Cadmium orange
-{Grün,grünlich: RGB(143, 201, 58)}
+{Grün,grünlich: RGB(123, 181, 46)}
 {Gelb,gelblich: RGB(255, 200, 87)}
 {Blau,bläulich: RGB(0, 114, 187)}
 \SetShadeContrast{45}
@@ -107,4 +107,7 @@
 \outroright{\smash{\raisebox{1.33cm/2}{\qrcode[height=1.33cm]{https://github.com/EagleoutIce/Episode-Traversierung}}}\begin{tikzpicture}[remember picture,overlay]
     \node[above left,btdl@color@white,scale=.475] at (current page.south east) {\href{https://github.com/EagleoutIce/Episode-Traversierung}{Slides and \LaTeX-sources on GitHub!}};
 \end{tikzpicture}}
+
+\newcommand*\heap[2][]{\downsize{\linewidth}{\begin{forest}for tree={lblob,minimum width=2.5em,s sep=4em-level*.5em,edge={line width=3pt,lgray},#1}#2\end{forest}}}
+
 \hfuzz=5cm
