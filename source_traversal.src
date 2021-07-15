@@ -6,7 +6,7 @@
 \SidebarCite{gh:tikzpingus}
 \SidebarCite{gh:episode-heaps}
 \savebox\pinguA{\tikz{\pingu[glasses round, right eye wink, right wing grab,bow tie=paletteA]}}%
-\savebox\pinguB{\tikz{\pingu[glasses, left eye wink, right wing grab,tie=paletteA]}}%
+\savebox\pinguB{\tikz{\pingu[glasses, left eye wink, right wing grab,tie=paletteB]}}%
 \begin{frame}{Der binäre Baum}
 \onslide<2->{\centering\tree{%
     [42,name=root[19,name=inner1[7,name=inner2[3,name=leaf1][-2,name=leaf2]][8,name=leaf3]][-5,name=inner3[-9,name=leaf4]]]%
@@ -55,14 +55,87 @@
     \node[below left=.25cm,yshift=.8cm,scale=.6] (pingu) at (current page.north east) {\rotatebox[origin=c]{180}{\usebox\pinguB}};
     \node[left,scale=.6,text width=6.75cm,align=center,yshift=-.33cm] at (pingu.west) {Die gilt auch für Bäume mit mehr als zwei Kindern.};
 }
+\end{tikzpicture}%
+\end{frame}
+\SidebarReset
 
+\savebox\pinguA{\tikz{\pingu[headband,glow=paletteC,eyes angry,right wing grab,left wing wave]}}%
+\savebox\pinguB{\tikz{\pingu[wings shock,eyes=wink,sunglasses,heart=gray!20!white]}}%
+\savebox\pinguC{\tikz{\pingu[right wing grab,left wing wave,hand cast left=\faExclamation,hand cast left color=paletteA,eye patch right]}}%
+\begin{frame}{Der rekursive Baum}
+\centering
+\only<2|handout:0>{\tree{[9[15[8][,phantom]][2[7][3][2][4]][3[9][2]]]}}%
+\only<3-4|handout:1>{\tree{[9,m[15,name=15[8,w,name=8][,phantom]][2,name=2[7,w,name=7][3,w][2,w][4,w,name=4]][3,name=3[9,w,name=9][2,w,name=2b]]]\pgfinterruptboundingbox\only<4|handout:1>{\draw[shadeA,ultra thick,rounded corners] (7.south west)++(-.5cm,-.5cm) rectangle ([xshift=.5cm,yshift=.5cm]2.north east-|4.north east);\draw[shadeA,ultra thick,rounded corners] (8.south west)++(-.5cm,-.5cm) rectangle ([xshift=.5cm,yshift=.5cm]15.north east);\draw[shadeA,ultra thick,rounded corners] (9.south west)++(-.5cm,-.5cm) rectangle ([xshift=.5cm,yshift=.5cm]3.north east-|2b.north east);}\endpgfinterruptboundingbox}}%
+\only<5|handout:0>{\tree{[9,w[15,m[8][,phantom]][2,w[7,w][3,w][2,w][4,w]][3,w[9,w][2,w]]]}}%
+\only<6|handout:0>{\tree{[9,w[15,w[8,w][,phantom]][2,m[7][3][2][4]][3,w[9,w][2,w]]]}}%
+\only<7|handout:2>{\tree{[9,w[15,w[8,w][,phantom]][2,w[7,w][3,w][2,w][4,w]][3,m,name=3[9,name=9][2,name=2]]]\pgfinterruptboundingbox\only<7|handout:2>{\draw[shadeA,ultra thick,rounded corners] (9.south west)++(-.5cm,-.5cm) rectangle ([xshift=.5cm,yshift=.5cm]9.north east);\draw[shadeA,ultra thick,rounded corners] (2.south west)++(-.5cm,-.5cm) rectangle ([xshift=.5cm,yshift=.5cm]2.north east);}\endpgfinterruptboundingbox}}%
+\only<8|handout:0>{\tree{[9,w[15,w[8,m][,phantom]][2,w[7,w][3,w][2,w][4,w]][3,w[9,w][2,w]]]}}%
+\only<9|handout:0>{\tree{[9,w[15,w[8,w][,phantom]][2,w[7,m][3,w][2,w][4,w]][3,w[9,w][2,w]]]}}%
+\only<10|handout:0>{\tree{[9,w[15,w[8,w][,phantom]][2,w[7,w][3,m][2,w][4,w]][3,w[9,w][2,w]]]}}%
+\only<11|handout:3>{\tree{[9,w[15,w[8,w][,phantom]][2,w[7,w][3,w][2,m][4,w]][3,w,name=3[9,w,name=9][2,w,name=2]]]}}%
+\only<12|handout:0>{\tree{[9,w[15,w[8,w][,phantom]][2,w[7,w][3,w][2,w][4,m]][3,w[9,w][2,w]]]}}%
+\only<13|handout:0>{\tree{[9,w[15,w[8,w][,phantom]][2,w[7,w][3,w][2,w][4,w]][3,w[9,m][2,w]]]}}%
+\only<14|handout:0>{\tree{[9,w[15,w[8,w][,phantom]][2,w[7,w][3,w][2,w][4,w]][3,w[9,w][2,m]]]}}%
+\begin{tikzpicture}[overlay,remember picture]
+\onslide<2-6|handout:1>{%
+    \node[below left=.25cm,yshift=.8cm,scale=.6] (pingu) at (current page.north east) {\rotatebox[origin=c]{180}{\usebox\pinguA}};
+    \node[left,scale=.6,text width=6.75cm,align=center,yshift=-.33cm] at (pingu.west) {Jeder Knoten ist Wurzel eines Teilbaums};
+}
+\onslide<7-10|handout:2>{%
+    \node[below left=.25cm,yshift=.8cm,scale=.6] (pingu) at (current page.north east) {\rotatebox[origin=c]{180}{\usebox\pinguB}};
+    \node[left,scale=.6,text width=6.75cm,align=center,yshift=-.33cm] at (pingu.west) {So lassen sich rekursive Regeln formulieren!};
+}
+\onslide<11-|handout:3>{%
+    \node[below left=.25cm,yshift=.8cm,scale=.6] (pingu) at (current page.north east) {\rotatebox[origin=c]{180}{\usebox\pinguC}};
+    \node[left=-3mm,scale=.6,text width=6.75cm,align=center,yshift=-.75cm] at (pingu.west) {Beispielsweise:\smallskip\par \(\text{Left} < \text{Root} \leq \text{Right}\)\par \(\text{Root} = \text{Left} + \text{Right}\)};
+}
 \end{tikzpicture}%
 \end{frame}
 
-\begin{frame}{Der rekursive Baum}
+
+\subsection{Breitensuchen}
+\subsubsection{Level-Order}
+\begin{frame}{Eine Breitensuche}
+    \begin{itemize}[<+(1)->]
+        \item Ebene für Ebene, von links nach rechts.
+    \end{itemize}
+\vfill
+\begin{columns}[c,onlytextwidth]
+\column{.6\linewidth}
+\centering
+% ugly cheap
+\only<2|handout:0>{\tree{[8,name=8[7,name=7[,phantom][3,name=3]][6,name=6[5,name=5[,phantom][,phantom]][2,name=2[4,name=4][,phantom]]][9,name=9[,phantom][,phantom]]]}}%
+\only<3|handout:0>{\tree{[8,g[7[,phantom][3]][6[5[,phantom][,phantom]][2[4][,phantom]]][9[,phantom][,phantom]]]}}%
+\only<4|handout:0>{\tree{[8[7,g[,phantom][3]][6[5[,phantom][,phantom]][2[4][,phantom]]][9[,phantom][,phantom]]]}}%
+\only<5|handout:0>{\tree{[8[7[,phantom][3]][6,g[5[,phantom][,phantom]][2[4][,phantom]]][9[,phantom][,phantom]]]}}%
+\only<6|handout:0>{\tree{[8[7[,phantom][3]][6[5[,phantom][,phantom]][2[4][,phantom]]][9,g[,phantom][,phantom]]]}}%
+\only<7|handout:0>{\tree{[8[7[,phantom][3,g]][6[5[,phantom][,phantom]][2[4][,phantom]]][9[,phantom][,phantom]]]}}%
+\only<8|handout:0>{\tree{[8[7[,phantom][3]][6[5,g[,phantom][,phantom]][2[4][,phantom]]][9[,phantom][,phantom]]]}}%
+\only<9|handout:0>{\tree{[8[7[,phantom][3]][6[5[,phantom][,phantom]][2,g[4][,phantom]]][9[,phantom][,phantom]]]}}%
+\only<10|handout:0>{\tree{[8[7[,phantom][3]][6[5[,phantom][,phantom]][2[4,g][,phantom]]][9[,phantom][,phantom]]]}}%
+\only<11|handout:1>{\tree{[8[7[,phantom][3]][6[5[,phantom][,phantom]][2[4][,phantom]]][9[,phantom][,phantom]]]}}%
+\column{.35\linewidth}
+\centering
+\foreach[count=\i] \m in{8,7,6,9,3,5,2,4}{\onslide<\the\numexpr2+\i\relax->{\ifnum\i>1,\space\fi\m}}%
+\end{columns}
+\end{frame}
+% TODO: Eindeutigkeit
+
+\subsection{Tiefensuchen}
+\subsubsection{Pre-Order}
+\begin{frame}
 
 \end{frame}
-\SidebarReset
+
+\subsubsection{In-Order}
+\begin{frame}
+
+\end{frame}
+
+\subsubsection{Post-Order}
+\begin{frame}
+
+\end{frame}
 
 \section{Graphen}
 \begin{frame}
