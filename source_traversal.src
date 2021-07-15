@@ -196,7 +196,7 @@ class Node {
 \end{frame}
 
 \subsubsection{Post-Order}
-\savebox\pinguA{\tikz{\pingu[eyes shock,crown,heart=gray!20!white]}}%
+\savebox\pinguA{\tikz{\pingu[eyes shock,crown=pingu@black,crown gem colors={paletteD}{paletteB}{paletteC}{paletteA}{paletteC}{paletteB}{paletteD},heart=gray!20!white]}}%
 \begin{frame}{Post-Order}
     \begin{center}
         \onslide<2->{Erst Links, dann Rechts, dann \textit{Wurzel}}
@@ -227,13 +227,17 @@ class Node {
 \end{tikzpicture}%
 \end{frame}
 
-\subsubsection{Kommentare}
+\subsection{Kommentare}
 \begin{frame}{Kommentare}
-    \begin{itemize}
-        \item Die Besuchsreihenfolge allein ist keine eindeutige Baumbeschreibung!
+    \begin{itemize}[<+(1)->]
+        \item Die Reihenfolge ist \textit{keine} eindeutige Beschreibung!
+\begin{center}
+    \vspace*{1.75em}
+    \onslide<3->{\textit{In-Order}: 7, 6, 9, 2\medskip\\}
+    \null\hfill\onslide<4->{\scalebox{.66}{\tree{[9[6[7][,phantom]][2]]}}}\hfill\onslide<5->{\scalebox{.66}{\tree{[6[7][2[9][,phantom]]]}}}\hfill\onslide<6->{\scalebox{.66}{\tree{[7[,phantom][9[6][2]]]}}}\hfill\null
+\end{center}
     \end{itemize}
 \end{frame}
-% TODO: Eindeutigkeit
 % TODO: reverse
 
 \section{Graphen}
