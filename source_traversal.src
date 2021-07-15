@@ -61,9 +61,9 @@
 
 \savebox\pinguA{\tikz{\pingu[headband,glow=paletteC,eyes angry,right wing grab,left wing wave]}}%
 \savebox\pinguB{\tikz{\pingu[wings shock,eyes=wink,sunglasses,heart=gray!20!white]}}%
-\savebox\pinguC{\tikz{\pingu[right wing grab,left wing wave,hand cast left=\faExclamation,hand cast left color=paletteA,eye patch right]}}%
-\savebox\pinguD{\tree[opacity=.5]{[9,w[15,w[8,w]][2,w[7,w][3,m,name=2b][4,w]][3,m,name=3[9,name=9][2,name=2]]]\scope[opacity=.5]\pgfinterruptboundingbox\draw[shadeA,ultra thick,rounded corners] (9.south west)++(-.5cm,-.5cm) rectangle ([xshift=.5cm,yshift=.5cm]9.north east);\draw[shadeA,ultra thick,rounded corners] (2.south west)++(-.5cm,-.5cm) rectangle ([xshift=.5cm,yshift=.5cm]2.north east);\node[above right=1.6mm,font=\sbfamily,paletteA] (dk) at(3.north east) {Knoten};\node[below right,yshift=4pt,gray,font=\scriptsize\itshape,align=left] at (dk.south west) {Mit zwei\\Teilbäumen};\node[below=12pt,gray,align=center,font=\scriptsize\itshape] at (9.south) {{\upshape\sbfamily Teilbaum 1}\\(mit Wurzel 9)};\node[below=12pt,gray,align=center,font=\scriptsize\itshape] at (2.south) {{\upshape\sbfamily Teilbaum 2}\\(mit Wurzel 2)};\node[below=1.25mm,font=\sbfamily,paletteA] (dk) at(2b.south) {Knoten};\node[below=-4pt,gray,font=\scriptsize\itshape] at (dk.south) {Ohne Teilbäume};\endpgfinterruptboundingbox\endscope}}
-\begin{frame}{Der rekursive Baum}
+\savebox\pinguC{\tikz{\pingu[right wing grab,left wing wave,hand cast left=\faExclamation,hand cast left color=paletteA,eye patch right,monocle left]}}%
+\savebox\pinguD{\tree{[9,w[15,w[8,w]][2,w[7,w][3,m,name=2b][4,w]][3,m,name=3[9,name=9][2,name=2]]]\pgfinterruptboundingbox\draw[shadeA,ultra thick,rounded corners] (9.south west)++(-.5cm,-.5cm) rectangle ([xshift=.5cm,yshift=.5cm]9.north east);\draw[shadeA,ultra thick,rounded corners] (2.south west)++(-.5cm,-.5cm) rectangle ([xshift=.5cm,yshift=.5cm]2.north east);\node[below=12pt,gray,align=center,font=\scriptsize\itshape] at (9.south) {{\upshape\sbfamily Teilbaum 1}};\node[below=12pt,gray,align=center,font=\scriptsize\itshape] at (2.south) {{\upshape\sbfamily Teilbaum 2}};\endpgfinterruptboundingbox}}
+\begin{frame}[fragile]{Der rekursive Baum}
 \centering
 \def\treewidth{.94\linewidth}%
 % ugly, but allows me to control handout better
@@ -78,6 +78,20 @@
 \only<12|handout:0>{\tree{[9,w[15,w[8,w]][2,w[7,w][3,w][4,m]][3,w[9,w][2,w]]]}}%
 \only<13|handout:0>{\tree{[9,w[15,w[8,w]][2,w[7,w][3,w][4,w]][3,w[9,m][2,w]]]}}%
 \only<14|handout:0>{\tree{[9,w[15,w[8,w]][2,w[7,w][3,w][4,w]][3,w[9,w][2,m]]]}}%
+\onlyenv<16-|handout:4>\vspace*{4em}\begin{itemize}
+    \itemsep=10pt
+    \item<16-> Binärbäume: \textit{linker} und \textit{rechter} Teilbaum.
+    \item<17-> \textit{Fehlende} Teilbäume heißen auch \textit{leer}.
+    \item<18-> Die Betrachtung wird in Java benutzt: \lstfs{9}
+\actionenv<19->
+\begin{plainjava}[belowskip=0pt]
+class Node {
+    int value;
+    Node leftSubtree, rightSubtree;
+}
+\end{plainjava}
+\endactionenv
+\end{itemize}\endonlyenv
 \begin{tikzpicture}[overlay,remember picture]
 \onslide<2-6|handout:1>{%
     \node[below left=.25cm,yshift=.8cm,scale=.6] (pingu) at (current page.north east) {\rotatebox[origin=c]{180}{\usebox\pinguA}};
@@ -87,56 +101,76 @@
     \node[below left=.25cm,yshift=.8cm,scale=.6] (pingu) at (current page.north east) {\rotatebox[origin=c]{180}{\usebox\pinguB}};
     \node[left,scale=.6,text width=6.75cm,align=center,yshift=-.33cm] at (pingu.west) {So lassen sich rekursive Regeln formulieren!};
 }
-\onslide<11-|handout:3>{%
+\onslide<11-14|handout:3>{%
     \node[below left=.25cm,yshift=.8cm,scale=.6] (pingu) at (current page.north east) {\rotatebox[origin=c]{180}{\usebox\pinguC}};
     \node[left=-3mm,scale=.6,text width=6.75cm,align=center,yshift=-.75cm] at (pingu.west) {Beispielsweise:\smallskip\par \(\text{Left} < \text{Root} \leq \text{Right}\)\par \(\text{Root} = \text{Left} + \text{Right}\)};
 }
-\only<15|handout:4>{\node[below left=.5cm] at(current page.north east) {\usebox\pinguD};}%
+\only<15-|handout:4>{\node[below left=.5cm,scale=.5] at(current page.north east) {\usebox\pinguD};}%
+\onslide<1-|handout:1->
 \end{tikzpicture}%
 \end{frame}
 
 
-\subsection{Breitensuchen}
+\subsection{Breitendurchläufe}
 \subsubsection{Level-Order}
-\begin{frame}{Eine Breitensuche}
-    \begin{itemize}[<+(1)->]
-        \item Ebene für Ebene, von links nach rechts.
-    \end{itemize}
+\begin{frame}{Die Level-Order}
+    \begin{center}
+        \onslide<2->{Ebene für Ebene, von links nach rechts.}
+    \end{center}
 \vfill
 \begin{columns}[c,onlytextwidth]
 \column{.6\linewidth}
 \centering
 % ugly cheap
-\only<2|handout:0>{\tree{[8,name=8[7,name=7[,phantom][3,name=3]][6,name=6[5,name=5[,phantom][,phantom]][2,name=2[4,name=4][,phantom]]][9,name=9[,phantom][,phantom]]]}}%
-\only<3|handout:0>{\tree{[8,g[7[,phantom][3]][6[5[,phantom][,phantom]][2[4][,phantom]]][9[,phantom][,phantom]]]}}%
-\only<4|handout:0>{\tree{[8[7,g[,phantom][3]][6[5[,phantom][,phantom]][2[4][,phantom]]][9[,phantom][,phantom]]]}}%
-\only<5|handout:0>{\tree{[8[7[,phantom][3]][6,g[5[,phantom][,phantom]][2[4][,phantom]]][9[,phantom][,phantom]]]}}%
-\only<6|handout:0>{\tree{[8[7[,phantom][3]][6[5[,phantom][,phantom]][2[4][,phantom]]][9,g[,phantom][,phantom]]]}}%
-\only<7|handout:0>{\tree{[8[7[,phantom][3,g]][6[5[,phantom][,phantom]][2[4][,phantom]]][9[,phantom][,phantom]]]}}%
-\only<8|handout:0>{\tree{[8[7[,phantom][3]][6[5,g[,phantom][,phantom]][2[4][,phantom]]][9[,phantom][,phantom]]]}}%
-\only<9|handout:0>{\tree{[8[7[,phantom][3]][6[5[,phantom][,phantom]][2,g[4][,phantom]]][9[,phantom][,phantom]]]}}%
-\only<10|handout:0>{\tree{[8[7[,phantom][3]][6[5[,phantom][,phantom]][2[4,g][,phantom]]][9[,phantom][,phantom]]]}}%
-\only<11|handout:1>{\tree{[8[7[,phantom][3]][6[5[,phantom][,phantom]][2[4][,phantom]]][9[,phantom][,phantom]]]}}%
+\only<3|handout:0>{\tree{[8,name=8[7,name=7[,phantom][3,name=3]][6,name=6[5,name=5[,phantom][,phantom]][2,name=2[4,name=4][,phantom]]]]}}%
+\only<4|handout:0>{\tree{[8,g[7[,phantom][3]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
+\only<5|handout:0>{\tree{[8[7,g[,phantom][3]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
+\only<6|handout:0>{\tree{[8[7[,phantom][3]][6,g[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
+\only<7|handout:0>{\tree{[8[7[,phantom][3,g]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
+\only<8|handout:0>{\tree{[8[7[,phantom][3]][6[5,g[,phantom][,phantom]][2[4][,phantom]]]]}}%
+\only<9|handout:0>{\tree{[8[7[,phantom][3]][6[5[,phantom][,phantom]][2,g[4][,phantom]]]]}}%
+\only<10|handout:0>{\tree{[8[7[,phantom][3]][6[5[,phantom][,phantom]][2[4,g][,phantom]]]]}}%
+\only<11|handout:1>{\tree{[8[7[,phantom][3]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
 \column{.35\linewidth}
 \centering
-\foreach[count=\i] \m in{8,7,6,9,3,5,2,4}{\onslide<\the\numexpr2+\i\relax->{\ifnum\i>1,\space\fi\m}}%
+\foreach[count=\i] \m in{8,7,6,3,5,2,4}{\onslide<\the\numexpr3+\i\relax->{\ifnum\i>1,\space\fi\m}}%
 \end{columns}
 \end{frame}
 % TODO: Eindeutigkeit
 
-\subsection{Tiefensuchen}
+\subsection{Tiefendurchläufe}
 \subsubsection{Pre-Order}
-\begin{frame}
-
+\begin{frame}{Pre-Order}
+    \begin{center}
+        \onslide<2->{Erst Wurzel, dann Links, dann Rechts}
+    \end{center}
+\vfill
+\begin{columns}[c,onlytextwidth]
+\column{.6\linewidth}
+\centering
+% ugly cheap
+\only<3|handout:0>{\tree{[8,name=8[7,name=7[,phantom][3,name=3]][6,name=6[5,name=5[,phantom][,phantom]][2,name=2[4,name=4][,phantom]]]]}}%
+\only<4|handout:0>{\tree{[8,g[7[,phantom][3]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
+\only<5|handout:0>{\tree{[8[7,g[,phantom][3]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
+\only<6|handout:0>{\tree{[8[7[,phantom][3]][6,g[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
+\only<7|handout:0>{\tree{[8[7[,phantom][3,g]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
+\only<8|handout:0>{\tree{[8[7[,phantom][3]][6[5,g[,phantom][,phantom]][2[4][,phantom]]]]}}%
+\only<9|handout:0>{\tree{[8[7[,phantom][3]][6[5[,phantom][,phantom]][2,g[4][,phantom]]]]}}%
+\only<10|handout:0>{\tree{[8[7[,phantom][3]][6[5[,phantom][,phantom]][2[4,g][,phantom]]]]}}%
+\only<11|handout:1>{\tree{[8[7[,phantom][3]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
+\column{.35\linewidth}
+\centering
+\foreach[count=\i] \m in{8,7,6,3,5,2,4}{\onslide<\the\numexpr3+\i\relax->{\ifnum\i>1,\space\fi\m}}%
+\end{columns}
 \end{frame}
 
 \subsubsection{In-Order}
-\begin{frame}
+\begin{frame}{In-Order}
 
 \end{frame}
 
 \subsubsection{Post-Order}
-\begin{frame}
+\begin{frame}{Post-Order}
 
 \end{frame}
 
