@@ -1,6 +1,7 @@
 \input{preamble}
 
 \begin{document}
+\iffalse
 \section{Bäume}
 \subsection{Begrifflichkeiten}
 \SidebarCite{gh:tikzpingus}
@@ -260,13 +261,13 @@ class Node {
 % TODO: am Ende noch mal übersicht was breadth- und was depth-first ist
 \section{Graphen}
 \subsection{Breitendurchlauf}
-\begin{frame}{Graphen}
+\begin{frame}{Graphen in der Breite}
 \begin{itemize}
     \item<2-> \only<3->{\textbf}{Breiten-} und Tiefendurchläufe gehen auch auf Graphen!
 \begin{center}
 \vfill% TODO: Animation for bfs and dfs on sepearate slides
 \scalebox{.9}{\onslide<3->{\begin{tikzpicture}[lblob/.append style={minimum width=2.5em}]
-    \node[lblob,alt=<4>{fill=shadeA,draw=shadeA}{fill=shadeB,draw=shadeB},alt=<5-|handout:1->{fill=shadeGray,draw=shadeGray,opacity=.5}] (13) at(0,0) {13};
+    \node[lblob,alt=<4>{fill=shadeA,draw=shadeA,font=\sbfamily}{fill=shadeB,draw=shadeB},alt=<5-|handout:1->{fill=shadeGray,draw=shadeGray,opacity=.5}] (13) at(0,0) {13};
     \node[lblob,T={4}{5|handout:1}{6-|handout:2-}] (7) at(1.5,1.5) {7};
     \node[lblob,T={4-5|handout:1}{6|handout:0}{7-|handout:2-}] (8) at(1.5,0) {8};
     \node[lblob,T={4-6|handout:1}{7|handout:0}{8-|handout:2-}] (25) at(1.5,-1.5) {25};
@@ -294,8 +295,42 @@ class Node {
 \end{center}
 \end{itemize}
 \end{frame}
+\fi
 \subsection{Tiefendurchlauf}
-% TODO: Tiefendurchlauf extra slide; same graph -> use stack
+\begin{frame}{Graphen in der Tiefe}
+\begin{itemize}
+    \item<2-> Breiten- und \only<3->{\textbf}{Tiefendurchläufe} gehen auch auf Graphen!
+\begin{center}
+\vfill% TODO: Animation for bfs and dfs on sepearate slides
+\scalebox{.9}{\onslide<3->{\begin{tikzpicture}[lblob/.append style={minimum width=2.5em}]
+    \node[lblob,alt=<4>{fill=shadeA,draw=shadeA,font=\sbfamily}{fill=shadeB,draw=shadeB},alt=<5-|handout:1->{fill=shadeGray,draw=shadeGray,opacity=.5}] (13) at(0,0) {13};
+    \node[lblob] (7) at(1.5,1.5) {7};
+    \node[lblob] (8) at(1.5,0) {8};
+    \node[lblob] (25) at(1.5,-1.5) {25};
+    \node[lblob] (x2) at(3,1.5) {-2};
+    \node[lblob] (15) at(3,3) {15};
+    \node[lblob] (10) at(9,0) {10};
+    \node[lblob] (4) at(3,-1.5) {4};
+    \node[lblob] (6) at(4.5,0) {6};
+    \node[lblob] (7b) at(6,1) {7};
+    \node[lblob] (0) at(6,-1) {0};
+    \node[lblob] (9) at(7.5,0) {9};
+    \onslide<2->{\node[below left,text width=7.15cm,scale=.75] at (current bounding box.north east) {{\sbfamily Stack-Buffer:}\smallskip\\{}[\,\,]};}
+    \begin{scope}[every path/.append style={draw,line width=3pt,lgray,line cap=butt},every new ->/.style={-{Kite[scale=.75]}},every new <->/.style={{Kite[scale=.75]}-{Kite[scale=.75]}}]
+        \graph{%
+            (13) <-> (7) -> (x2) -> (6) -> (7b) -> (9) -> (0) -> (7b),
+            (0) -> (6) <-> (4) -> (8) -> (25) -> (4), (9) -> (10),
+            (x2) -> (15),
+            (13) -> (8) <-> (x2),
+            (13) -> (25) ->[bend left=15] (6),
+            (x2) ->[bend left] (7b),
+            (4) <->[bend right] (0)
+        };
+    \end{scope}
+\end{tikzpicture}}}
+\end{center}
+\end{itemize}
+\end{frame}
 
 \section{Labyrinthe}
 \begin{frame}
