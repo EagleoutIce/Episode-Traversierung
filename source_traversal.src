@@ -64,18 +64,18 @@
 \savebox\pinguC{\tikz{\pingu[right wing grab,left wing wave,hand cast left=\faExclamation,hand cast left color=paletteA,eye patch right]}}%
 \begin{frame}{Der rekursive Baum}
 \centering
-\only<2|handout:0>{\tree{[9[15[8][,phantom]][2[7][3][2][4]][3[9][2]]]}}%
-\only<3-4|handout:1>{\tree{[9,m[15,name=15[8,w,name=8][,phantom]][2,name=2[7,w,name=7][3,w][2,w][4,w,name=4]][3,name=3[9,w,name=9][2,w,name=2b]]]\pgfinterruptboundingbox\only<4|handout:1>{\draw[shadeA,ultra thick,rounded corners] (7.south west)++(-.5cm,-.5cm) rectangle ([xshift=.5cm,yshift=.5cm]2.north east-|4.north east);\draw[shadeA,ultra thick,rounded corners] (8.south west)++(-.5cm,-.5cm) rectangle ([xshift=.5cm,yshift=.5cm]15.north east);\draw[shadeA,ultra thick,rounded corners] (9.south west)++(-.5cm,-.5cm) rectangle ([xshift=.5cm,yshift=.5cm]3.north east-|2b.north east);}\endpgfinterruptboundingbox}}%
-\only<5|handout:0>{\tree{[9,w[15,m[8][,phantom]][2,w[7,w][3,w][2,w][4,w]][3,w[9,w][2,w]]]}}%
-\only<6|handout:0>{\tree{[9,w[15,w[8,w][,phantom]][2,m[7][3][2][4]][3,w[9,w][2,w]]]}}%
-\only<7|handout:2>{\tree{[9,w[15,w[8,w][,phantom]][2,w[7,w][3,w][2,w][4,w]][3,m,name=3[9,name=9][2,name=2]]]\pgfinterruptboundingbox\only<7|handout:2>{\draw[shadeA,ultra thick,rounded corners] (9.south west)++(-.5cm,-.5cm) rectangle ([xshift=.5cm,yshift=.5cm]9.north east);\draw[shadeA,ultra thick,rounded corners] (2.south west)++(-.5cm,-.5cm) rectangle ([xshift=.5cm,yshift=.5cm]2.north east);}\endpgfinterruptboundingbox}}%
-\only<8|handout:0>{\tree{[9,w[15,w[8,m][,phantom]][2,w[7,w][3,w][2,w][4,w]][3,w[9,w][2,w]]]}}%
-\only<9|handout:0>{\tree{[9,w[15,w[8,w][,phantom]][2,w[7,m][3,w][2,w][4,w]][3,w[9,w][2,w]]]}}%
-\only<10|handout:0>{\tree{[9,w[15,w[8,w][,phantom]][2,w[7,w][3,m][2,w][4,w]][3,w[9,w][2,w]]]}}%
-\only<11|handout:3>{\tree{[9,w[15,w[8,w][,phantom]][2,w[7,w][3,w][2,m][4,w]][3,w,name=3[9,w,name=9][2,w,name=2]]]}}%
-\only<12|handout:0>{\tree{[9,w[15,w[8,w][,phantom]][2,w[7,w][3,w][2,w][4,m]][3,w[9,w][2,w]]]}}%
-\only<13|handout:0>{\tree{[9,w[15,w[8,w][,phantom]][2,w[7,w][3,w][2,w][4,w]][3,w[9,m][2,w]]]}}%
-\only<14|handout:0>{\tree{[9,w[15,w[8,w][,phantom]][2,w[7,w][3,w][2,w][4,w]][3,w[9,w][2,m]]]}}%
+\only<2|handout:0>{\tree{[9[15[8]][2[7][3][2][4]][3[9][2]]]}}%
+\only<3-4|handout:1>{\tree{[9,m[15,name=15[8,w,name=8]][2,name=2[7,w,name=7][3,w][2,w][4,w,name=4]][3,name=3[9,w,name=9][2,w,name=2b]]]\pgfinterruptboundingbox\only<4|handout:1>{\draw[shadeA,ultra thick,rounded corners] (7.south west)++(-.5cm,-.5cm) rectangle ([xshift=.5cm,yshift=.5cm]2.north east-|4.north east);\draw[shadeA,ultra thick,rounded corners] (8.south west)++(-.5cm,-.5cm) rectangle ([xshift=.5cm,yshift=.5cm]15.north east);\draw[shadeA,ultra thick,rounded corners] (9.south west)++(-.5cm,-.5cm) rectangle ([xshift=.5cm,yshift=.5cm]3.north east-|2b.north east);}\endpgfinterruptboundingbox}}%
+\only<5|handout:0>{\tree{[9,w[15,m[8]][2,w[7,w][3,w][2,w][4,w]][3,w[9,w][2,w]]]}}%
+\only<6|handout:0>{\tree{[9,w[15,w[8,w]][2,m[7][3][2][4]][3,w[9,w][2,w]]]}}%
+\only<7|handout:2>{\tree{[9,w[15,w[8,w]][2,w[7,w][3,w][2,w][4,w]][3,m,name=3[9,name=9][2,name=2]]]\pgfinterruptboundingbox\only<7|handout:2>{\draw[shadeA,ultra thick,rounded corners] (9.south west)++(-.5cm,-.5cm) rectangle ([xshift=.5cm,yshift=.5cm]9.north east);\draw[shadeA,ultra thick,rounded corners] (2.south west)++(-.5cm,-.5cm) rectangle ([xshift=.5cm,yshift=.5cm]2.north east);}\endpgfinterruptboundingbox}}%
+\only<8|handout:0>{\tree{[9,w[15,w[8,m]][2,w[7,w][3,w][2,w][4,w]][3,w[9,w][2,w]]]}}%
+\only<9|handout:0>{\tree{[9,w[15,w[8,w]][2,w[7,m][3,w][2,w][4,w]][3,w[9,w][2,w]]]}}%
+\only<10|handout:0>{\tree{[9,w[15,w[8,w]][2,w[7,w][3,m][2,w][4,w]][3,w[9,w][2,w]]]}}%
+\only<11|handout:3>{\tree{[9,w[15,w[8,w]][2,w[7,w][3,w][2,m][4,w]][3,w,name=3[9,w,name=9][2,w,name=2]]]}}%
+\only<12|handout:0>{\tree{[9,w[15,w[8,w]][2,w[7,w][3,w][2,w][4,m]][3,w[9,w][2,w]]]}}%
+\only<13|handout:0>{\tree{[9,w[15,w[8,w]][2,w[7,w][3,w][2,w][4,w]][3,w[9,m][2,w]]]}}%
+\only<14|handout:0>{\tree{[9,w[15,w[8,w]][2,w[7,w][3,w][2,w][4,w]][3,w[9,w][2,m]]]}}%
 \begin{tikzpicture}[overlay,remember picture]
 \onslide<2-6|handout:1>{%
     \node[below left=.25cm,yshift=.8cm,scale=.6] (pingu) at (current page.north east) {\rotatebox[origin=c]{180}{\usebox\pinguA}};
