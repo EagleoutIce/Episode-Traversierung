@@ -123,14 +123,14 @@ class Node {
 \centering
 % ugly cheap
 \only<3|handout:0>{\tree{[8,name=8[7,name=7[,phantom][3,name=3]][6,name=6[5,name=5[,phantom][,phantom]][2,name=2[4,name=4][,phantom]]]]}}%
-\only<4|handout:0>{\tree{[8,g[7[,phantom][3]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
+\only<4|handout:1>{\tree{[8,g[7[,phantom][3]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
 \only<5|handout:0>{\tree{[8[7,g[,phantom][3]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
 \only<6|handout:0>{\tree{[8[7[,phantom][3]][6,g[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
 \only<7|handout:0>{\tree{[8[7[,phantom][3,g]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
 \only<8|handout:0>{\tree{[8[7[,phantom][3]][6[5,g[,phantom][,phantom]][2[4][,phantom]]]]}}%
 \only<9|handout:0>{\tree{[8[7[,phantom][3]][6[5[,phantom][,phantom]][2,g[4][,phantom]]]]}}%
 \only<10|handout:0>{\tree{[8[7[,phantom][3]][6[5[,phantom][,phantom]][2[4,g][,phantom]]]]}}%
-\only<11|handout:1>{\tree{[8[7[,phantom][3]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
+\only<11|handout:0>{\tree{[8[7[,phantom][3]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
 \column{.35\linewidth}
 \centering
 \foreach[count=\i] \m in{8,7,6,3,5,2,4}{\onslide<\the\numexpr3+\i\relax->{\ifnum\i>1,\space\fi\m}}%
@@ -150,14 +150,14 @@ class Node {
 \centering
 % ugly cheap
 \only<4|handout:0>{\tree{[8,name=8[7,name=7[,phantom][3,name=3]][6,name=6[5,name=5[,phantom][,phantom]][2,name=2[4,name=4][,phantom]]]]}}%
-\only<5|handout:0>{\tree{[8,g[7[,phantom][3]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
+\only<5|handout:1>{\tree{[8,g[7[,phantom][3]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
 \only<6|handout:0>{\tree{[8[7,g[,phantom][3]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
 \only<7|handout:0>{\tree{[8[7[,phantom][3,g]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
 \only<8|handout:0>{\tree{[8[7[,phantom][3]][6,g[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
 \only<9|handout:0>{\tree{[8[7[,phantom][3]][6[5,g[,phantom][,phantom]][2[4][,phantom]]]]}}%
 \only<10|handout:0>{\tree{[8[7[,phantom][3]][6[5[,phantom][,phantom]][2,g[4][,phantom]]]]}}%
 \only<11|handout:0>{\tree{[8[7[,phantom][3]][6[5[,phantom][,phantom]][2[4,g][,phantom]]]]}}%
-\only<12|handout:1>{\tree{[8[7[,phantom][3]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
+\only<12|handout:0>{\tree{[8[7[,phantom][3]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
 \column{.35\linewidth}
 \centering
 \foreach[count=\i] \m in{8,7,3,6,5,2,4}{\onslide<\the\numexpr4+\i\relax->{\ifnum\i>1,\space\fi\m}}%
@@ -171,6 +171,7 @@ class Node {
 \end{frame}
 
 \subsubsection{In-Order}
+\savebox\pinguA{\tikz{\pingu[eyes shiny,halo]}}%
 \begin{frame}{In-Order}
     \begin{center}
         \onslide<2->{Erst Links, dann \textit{Wurzel}, dann Rechts}
@@ -181,22 +182,27 @@ class Node {
 \centering
 % ugly cheap
 \only<3|handout:0>{\tree{[8,name=8[7,name=7[,phantom][3,name=3]][6,name=6[5,name=5[,phantom][,phantom]][2,name=2[4,name=4][,phantom]]]]}}%
-\only<4|handout:0>{\tree{[8[7,g[,phantom][3]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
+\only<4|handout:1>{\tree{[8[7,g[,phantom][3]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
 \only<5|handout:0>{\tree{[8[7[,phantom][3,g]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
 \only<6|handout:0>{\tree{[8,g[7[,phantom][3]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
 \only<7|handout:0>{\tree{[8[7[,phantom][3]][6[5,g[,phantom][,phantom]][2[4][,phantom]]]]}}%
 \only<8|handout:0>{\tree{[8[7[,phantom][3]][6,g[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
 \only<9|handout:0>{\tree{[8[7[,phantom][3]][6[5[,phantom][,phantom]][2[4,g][,phantom]]]]}}%
 \only<10|handout:0>{\tree{[8[7[,phantom][3]][6[5[,phantom][,phantom]][2,g[4][,phantom]]]]}}%
-\only<11|handout:1>{\tree{[8[7[,phantom][3]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
+\only<11|handout:0>{\tree{[8[7[,phantom][3]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
 \column{.35\linewidth}
 \centering
 \foreach[count=\i] \m in{7,3,8,5,6,4,2}{\onslide<\the\numexpr3+\i\relax->{\ifnum\i>1,\space\fi\m}}%
 \end{columns}%
+\begin{tikzpicture}[overlay,remember picture]
+\onslide<11-|handout:1>{%
+    \node[below left=.25cm,yshift=.8cm,scale=.6] (pingu) at (current page.north east) {\rotatebox[origin=c]{180}{\usebox\pinguA}};
+}
+\end{tikzpicture}%
 \end{frame}
 
 \subsubsection{Post-Order}
-\savebox\pinguA{\tikz{\pingu[eyes shock,crown=pingu@black,crown gem colors={paletteD}{paletteB}{paletteC}{paletteA}{paletteC}{paletteB}{paletteD},heart=gray!20!white]}}%
+\savebox\pinguA{\tikz{\pingu[eyes shock,crown=pingu@silver,crown gem colors={paletteD!85!black}{paletteB!85!black}{paletteC!85!black}{paletteA!85!black}{paletteC!85!black}{paletteB!85!black}{paletteD!85!black},heart=gray!20!white]}}%
 \begin{frame}{Post-Order}
     \begin{center}
         \onslide<2->{Erst Links, dann Rechts, dann \textit{Wurzel}}
@@ -207,14 +213,14 @@ class Node {
 \centering
 % ugly cheap
 \only<4|handout:0>{\tree{[8,name=8[7,name=7[,phantom][3,name=3]][6,name=6[5,name=5[,phantom][,phantom]][2,name=2[4,name=4][,phantom]]]]}}%
-\only<5|handout:0>{\tree{[8[7[,phantom][3,g]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
+\only<5|handout:1>{\tree{[8[7[,phantom][3,g]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
 \only<6|handout:0>{\tree{[8[7,g[,phantom][3]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
 \only<7|handout:0>{\tree{[8[7[,phantom][3]][6[5,g[,phantom][,phantom]][2[4][,phantom]]]]}}%
 \only<8|handout:0>{\tree{[8[7[,phantom][3]][6[5[,phantom][,phantom]][2[4,g][,phantom]]]]}}%
 \only<9|handout:0>{\tree{[8[7[,phantom][3]][6[5[,phantom][,phantom]][2,g[4][,phantom]]]]}}%
 \only<10|handout:0>{\tree{[8[7[,phantom][3]][6,g[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
 \only<11|handout:0>{\tree{[8,g[7[,phantom][3]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
-\only<12|handout:1>{\tree{[8[7[,phantom][3]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
+\only<12|handout:0>{\tree{[8[7[,phantom][3]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
 \column{.35\linewidth}
 \centering
 \foreach[count=\i] \m in{3,7,5,4,2,6,8}{\onslide<\the\numexpr4+\i\relax->{\ifnum\i>1,\space\fi\m}}%
@@ -228,7 +234,7 @@ class Node {
 \end{frame}
 
 \subsection{Kommentare}
-\begin{frame}{Kommentare}
+\begin{frame}{Kommentare\hfill\textcolor{shadeA}{\textbf{I}}}
     \begin{itemize}[<+(1)->]
         \item Die Reihenfolge ist \textit{keine} eindeutige Beschreibung!
 \begin{center}
@@ -238,11 +244,47 @@ class Node {
 \end{center}
     \end{itemize}
 \end{frame}
-% TODO: reverse
+\begin{frame}{Kommentare\hfill\textcolor{shadeA}{\textbf{II}}}
+    \begin{itemize}
+        \itemsep10pt
+        \item<2-> Es gibt auch \say{reverse}-Varianten.\smallskip\par
+            \onslide<3->{Diese bearbeiten den rechten \textit{vor} dem linken Teilbaum.}
+        \item<4-> Es werden Breiten- und Tiefendurchläufe unterschieden: \medskip\begin{itemize}
+            \itemsep8pt
+            \item<5-> \textit{depth-first}:\par Bearbeitet Pfad komplett und dann Abzweigungen.
+            \item<6-> \textit{breadth-first}:\par Breitet sich über alle Abzweigungen gleichmäßig aus.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
 
+% TODO: am Ende noch mal übersicht was breadth- und was depth-first ist
 \section{Graphen}
-\begin{frame}
-
+\begin{frame}{Graphen}
+\begin{itemize}[<+(1)->]
+    \item Breiten- und Tiefendurchläufe gehen auch auf Graphen!
+\begin{center}
+\vfill% TODO: Animation for bfs and dfs on sepearate slides
+\scalebox{.9}{\begin{tikzpicture}[lblob/.append style={minimum width=2.5em}]
+    \node[lblob,fill=shadeB,draw=shadeB] (13) at(0,0) {13};
+    \node[lblob] (7) at(1.5,1.5) {7};
+    \node[lblob] (8) at(1.5,0) {8};
+    \node[lblob] (25) at(1.5,-1.5) {25};
+    \node[lblob] (-2) at(3,1.5) {-2};
+    \node[lblob] (4) at(3,-1.5) {4};
+    \node[lblob] (6) at(4.5,0) {6};
+    \node[lblob] (7b) at(6,1) {7};
+    \node[lblob] (0) at(6,-1) {0};
+    \node[lblob] (9) at(7.5,0) {9};
+    \begin{scope}[every path/.append style={draw,line width=3pt,lgray}]
+        \path (13) -- (7) -- (-2) -- (6) -- (7b) -- (9) -- (0) -- (7b);
+        \path (0) -- (6) -- (4) -- (8) -- (25) -- (4);
+        \path (13) -- (8) -- (-2) (13) -- (25) to[bend left=15] (6);
+        \path (-2) to[bend left] (7b);
+        \path (4) to[bend right] (0);
+    \end{scope}
+\end{tikzpicture}}
+\end{center}
+\end{itemize}
 \end{frame}
 
 \section{Labyrinthe}
@@ -261,5 +303,5 @@ class Node {
 
 \end{frame}
 
-
+% TODO: wirbeltraversierung
 \end{document}
