@@ -267,7 +267,7 @@ class Node {
 \begin{center}
 \vfill% TODO: Animation for bfs and dfs on sepearate slides
 \scalebox{.9}{\onslide<3->{\begin{tikzpicture}[lblob/.append style={minimum width=2.5em}]
-    \node[lblob,alt=<4>{fill=shadeA,draw=shadeA,font=\sbfamily}{fill=shadeB,draw=shadeB},alt=<5-|handout:1->{fill=shadeGray,draw=shadeGray,opacity=.5}] (13) at(0,0) {13};
+    \node[lblob,alt=<4|handout:0>{fill=shadeA,draw=shadeA,font=\sbfamily}{fill=shadeB,draw=shadeB,font=\normalfont},alt=<5-|handout:1->{fill=shadeGray,draw=shadeGray,opacity=.5}] (13) at(0,0) {13};
     \node[lblob,T={4}{5|handout:1}{6-|handout:2-}] (7) at(1.5,1.5) {7};
     \node[lblob,T={4-5|handout:1}{6|handout:0}{7-|handout:2-}] (8) at(1.5,0) {8};
     \node[lblob,T={4-6|handout:1}{7|handout:0}{8-|handout:2-}] (25) at(1.5,-1.5) {25};
@@ -279,7 +279,7 @@ class Node {
     \node[lblob,T={8-11|handout:2}{12|handout:0}{13-|handout:3-}] (7b) at(6,1) {7};
     \node[lblob,T={10-12|handout:0}{13|handout:0}{14-|handout:3-}] (0) at(6,-1) {0};
     \node[lblob,T={12-13|handout:0}{14|handout:0}{15-|handout:3-}] (9) at(7.5,0) {9};
-    \onslide<2->{\node[below left,text width=7.15cm,scale=.75] at (current bounding box.north east) {{\sbfamily Queue-Buffer:}\smallskip\\{}[\,\only<3|handout:0>{13}\only<4|handout:0>{\textcolor{gray}{13,} 7, 8, 25}\only<5|handout:1>{\textcolor{gray}{13, 7,} 8, 25, -2}\only<6|handout:0>{\textcolor{gray}{13, 7, 8,} 25, -2}\only<7|handout:0>{\textcolor{gray}{13, 7, 8, 25,} -2, 6, 4}\only<8|handout:0>{\textcolor{gray}{13, 7, 8, 25, -2,} 6, 4, 15, 7}\only<9|handout:2>{\textcolor{gray}{13, 7, 8, 25, -2, 6,} 4, 15, 7}\only<10|handout:0>{\textcolor{gray}{13, 7, 8, 25, -2, 6, 4,} 15, 7, 0}\only<11|handout:0>{\textcolor{gray}{13, 7, 8, 25, -2, 6, 4, 15,} 7, 0}\only<12|handout:0>{\textcolor{gray}{13, 7, 8, 25, -2, 6, 4, 15, 7,} 0, 9}\only<13|handout:0>{\textcolor{gray}{13, 7, 8, 25, -2, 6, 4, 15, 7, 0,} 9}\only<14|handout:0>{\textcolor{gray}{13, 7, 8, 25, -2, 6, 4, 15, 7, 0, 9,} 10}\only<15-|handout:3->{\textcolor{gray}{13, 7, 8, 25, -2, 6, 4, 15, 7, 0, 9, 10}}\,]};}
+    \onslide<2->{\node[below left,xshift=4mm,text width=7.75cm,scale=.75] at (current bounding box.north east) {{\sbfamily Queue-Buffer:}\smallskip\\{}[\,\only<3|handout:0>{13}\only<4|handout:0>{\textcolor{gray}{13,} 7, 8, 25}\only<5|handout:1>{\textcolor{gray}{13, 7,} 8, 25, -2}\only<6|handout:0>{\textcolor{gray}{13, 7, 8,} 25, -2}\only<7|handout:0>{\textcolor{gray}{13, 7, 8, 25,} -2, 6, 4}\only<8|handout:0>{\textcolor{gray}{13, 7, 8, 25, -2,} 6, 4, 15, 7}\only<9|handout:2>{\textcolor{gray}{13, 7, 8, 25, -2, 6,} 4, 15, 7}\only<10|handout:0>{\textcolor{gray}{13, 7, 8, 25, -2, 6, 4,} 15, 7, 0}\only<11|handout:0>{\textcolor{gray}{13, 7, 8, 25, -2, 6, 4, 15,} 7, 0}\only<12|handout:0>{\textcolor{gray}{13, 7, 8, 25, -2, 6, 4, 15, 7,} 0, 9}\only<13|handout:0>{\textcolor{gray}{13, 7, 8, 25, -2, 6, 4, 15, 7, 0,} 9}\only<14|handout:0>{\textcolor{gray}{13, 7, 8, 25, -2, 6, 4, 15, 7, 0, 9,} 10}\only<15-|handout:3->{\textcolor{gray}{13, 7, 8, 25, -2, 6, 4, 15, 7, 0, 9, 10}}\,]};}
     \begin{scope}[every path/.append style={draw,line width=3pt,lgray,line cap=butt},every new ->/.style={-{Kite[scale=.75]}},every new <->/.style={{Kite[scale=.75]}-{Kite[scale=.75]}}]
         \graph{%
             (13) <->[K={4-5|handout:1}{0|handout:0}{6-|handout:1-}] (7) ->[K={5|handout:1}{0|handout:0}{6-|handout:2-}] (x2) ->[K={8|handout:0}{0|handout:0}{9-|handout:2-}] (6) ->[K={9|handout:2}{0|handout:0}{10-|handout:3-}] (7b) ->[K={12|handout:0}{0|handout:0}{13-|handout:3-}] (9) ->[K={14|handout:0}{0|handout:0}{15-|handout:3-}] (0) ->[K={13|handout:0}{0|handout:0}{14-|handout:3-}] (7b),
@@ -303,28 +303,28 @@ class Node {
 \begin{center}
 \vfill% TODO: Animation for bfs and dfs on sepearate slides
 \scalebox{.9}{\onslide<3->{\begin{tikzpicture}[lblob/.append style={minimum width=2.5em}]
-    \node[lblob,alt=<4>{fill=shadeA,draw=shadeA,font=\sbfamily}{fill=shadeB,draw=shadeB},alt=<5-|handout:1->{fill=shadeGray,draw=shadeGray,opacity=.5}] (13) at(0,0) {13};
-    \node[lblob] (7) at(1.5,1.5) {7};
-    \node[lblob] (8) at(1.5,0) {8};
-    \node[lblob] (25) at(1.5,-1.5) {25};
-    \node[lblob] (x2) at(3,1.5) {-2};
-    \node[lblob] (15) at(3,3) {15};
-    \node[lblob] (10) at(9,0) {10};
-    \node[lblob] (4) at(3,-1.5) {4};
-    \node[lblob] (6) at(4.5,0) {6};
-    \node[lblob] (7b) at(6,1) {7};
-    \node[lblob] (0) at(6,-1) {0};
-    \node[lblob] (9) at(7.5,0) {9};
-    \onslide<2->{\node[below left,text width=7.15cm,scale=.75] at (current bounding box.north east) {{\sbfamily Stack-Buffer:}\smallskip\\{}[\,\,]};}
-    \begin{scope}[every path/.append style={draw,line width=3pt,lgray,line cap=butt},every new ->/.style={-{Kite[scale=.75]}},every new <->/.style={{Kite[scale=.75]}-{Kite[scale=.75]}}]
+    \node[lblob,alt=<4|handout:0>{fill=shadeA,draw=shadeA,font=\sbfamily}{fill=shadeB,draw=shadeB,font=\normalfont},alt=<5-|handout:1->{fill=shadeGray,draw=shadeGray,opacity=.5}] (13) at(0,0) {13};
+    \node[lblob,T={4|handout:0}{5|handout:0}{6-|handout:1-}] (7) at(1.5,1.5) {7};
+    \node[lblob,T={4-12|handout:2}{13|handout:0}{14-|handout:3-}] (8) at(1.5,0) {8};
+    \node[lblob,T={4-14|handout:2}{15|handout:3}{16-|handout:4-}] (25) at(1.5,-1.5) {25};
+    \node[lblob,T={5|handout:0}{6|handout:0}{7-|handout:1-}] (x2) at(3,1.5) {-2};
+    \node[lblob,T={6|handout:0}{7|handout:1}{8-|handout:2-}] (15) at(3,3) {15};
+    \node[lblob,T={9|handout:2}{10|handout:0}{11-|handout:3-}] (10) at(9,0) {10};
+    \node[lblob,T={13|handout:0}{14|handout:0}{15-|handout:3-}] (4) at(3,-1.5) {4};
+    \node[lblob,T={6-11|handout:2}{12|handout:0}{13-|handout:3-}] (6) at(4.5,0) {6};
+    \node[lblob,T={6-7|handout:0}{8|handout:0}{9-|handout:2-}] (7b) at(6,1) {7};
+    \node[lblob,T={8-10|handout:2}{11|handout:0}{12-|handout:3-}] (0) at(6,-1) {0};
+    \node[lblob,T={8|handout:0}{9|handout:2}{10-|handout:3-}] (9) at(7.5,0) {9};
+    \onslide<2->{\node[below left,xshift=4mm,,text width=7.75cm,scale=.75] at (current bounding box.north east) {{\sbfamily Stack-Buffer:}\smallskip\\{}[\,\only<3|handout:0>{13}\only<4|handout:0>{25, 8, 7}\only<5|handout:0>{25, 8, -2}\only<6|handout:0>{25, 8, 6, 7$_2$, 15}\only<7|handout:1>{25, 8, 6, 7$_2$}\only<8|handout:0>{25, 8, 6, 0, 9}\only<9|handout:2>{25, 8, 6, 0, 10}\only<10|handout:0>{25, 8, 6, 0}\only<11|handout:0>{25, 8, 6}\only<12|handout:0>{25, 8}\only<13|handout:0>{25, 4}\only<14|handout:0>{25}\only<15|handout:3->{}\,] \hfill\only<4-|handout:1->{\textcolor{gray}{(\only<4|handout:0>{13}\only<5|handout:0>{13, 7}\only<6|handout:0>{13, 7, -2}\only<7|handout:1>{13, 7, -2, 15}\only<8|handout:0>{13, 7, -2, 15, 7$_2$}\only<9|handout:2>{13, 7, -2, 15, 7$_2$, 9}\only<10|handout:0>{13, 7, -2, 15, 7$_2$, 9, 10}\only<11|handout:0>{13, 7, -2, 15, 7$_2$, 9, 10, 0}\only<12|handout:0>{13, 7, -2, 15, 7$_2$, 9, 10, 0, 6}\only<13|handout:0>{13, 7, -2, 15, 7$_2$, 9, 10, 0, 6, 8}\only<14|handout:0>{13, 7, -2, 15, 7$_2$, 9, 10, 0, 6, 8, 4}\only<15-|handout:3->{13, 7, -2, 15, 7$_2$, 9, 10, 0, 6, 8, 4, 25})}}};}
+    \begin{scope}[every path/.append style={draw,line width=3pt,lgray,line cap=butt},every new ->/.style={-{Kite[scale=.75]}},every new <-/.style={{Kite[scale=.75]}-},every new <->/.style={{Kite[scale=.75]}-{Kite[scale=.75]}}]
         \graph{%
-            (13) <-> (7) -> (x2) -> (6) -> (7b) -> (9) -> (0) -> (7b),
-            (0) -> (6) <-> (4) -> (8) -> (25) -> (4), (9) -> (10),
-            (x2) -> (15),
-            (13) -> (8) <-> (x2),
-            (13) -> (25) ->[bend left=15] (6),
-            (x2) ->[bend left] (7b),
-            (4) <->[bend right] (0)
+            (13) <->[K={4-5|handout:0}{0|handout:0}{6-|handout:1-}] (7) ->[K={5|handout:0}{0|handout:0}{6-|handout:1-}] (x2) ->[K={6|handout:0}{0|handout:0}{7-|handout:2-}] (6) ->[K={12|handout:0}{0|handout:0}{13-|handout:3-}] (7b) ->[K={8|handout:0}{0|handout:0}{9-|handout:2-}] (9) ->[K={9|handout:2}{0|handout:0}{10-|handout:3-}] (0) <-[K={8|handout:0}{0|handout:0}{9-|handout:2-}] (7b),
+            (0) <-[K={12|handout:0}{0|handout:0}{13-|handout:3-}] (6) <-[K={14|handout:0}{0|handout:0}{15-|handout:3-}] (4) <-[K={13|handout:0}{0|handout:0}{14-|handout:3-}] (8) ->[K={13|handout:0}{0|handout:0}{14-|handout:3-}] (25) ->[K={15|handout:3}{0|handout:0}{16-|handout:4-}] (4), (9) ->[K={9|handout:2}{0|handout:0}{10-|handout:3-}] (10),
+            (x2) ->[K={6|handout:0}{0|handout:0}{7-|handout:2-}] (15),
+            (13) ->[K={4|handout:0}{0|handout:0}{5-|handout:1-}] (8) <->[K={6|handout:0}{0|handout:0}{7-12|handout:0},K={13|handout:0}{0|handout:0}{14-|handout:3-}] (x2),
+            (13) ->[K={4|handout:0}{0|handout:0}{5-|handout:1-}] (25) ->[bend left=15,K={15|handout:3}{0|handout:0}{16-|handout:4-}] (6),
+            (x2) ->[bend left,K={6|handout:0}{0|handout:0}{7-|handout:2-}] (7b),
+            (4) ->[bend right,K={14|handout:0}{0|handout:0}{15-|handout:3-}] (0)
         };
     \end{scope}
 \end{tikzpicture}}}
