@@ -114,7 +114,7 @@ class Node {
 
 \subsection{Breitendurchläufe}
 \subsubsection{Level-Order}
-\begin{frame}{Die Level-Order}
+\begin{frame}{Level-Order}
     \begin{center}
         \onslide<2->{Ebene für Ebene, von links nach rechts.}
     \end{center}
@@ -136,6 +136,8 @@ class Node {
 \centering
 \foreach[count=\i] \m in{8,7,6,3,5,2,4}{\onslide<\the\numexpr3+\i\relax->{\ifnum\i>1,\space\fi\m}}%
 \end{columns}%
+\begin{tikzpicture}[overlay, remember picture]% pingu strut
+\end{tikzpicture}%
 \end{frame}
 
 \subsection{Tiefendurchläufe}
@@ -260,7 +262,6 @@ class Node {
 
 % TODO: am Ende noch mal übersicht was breadth- und was depth-first ist
 \section{Graphen}
-\fi
 \subsection{Breitendurchlauf}
 \begin{frame}{Graphen in der Breite}
 \begin{itemize}
@@ -295,8 +296,12 @@ class Node {
 \end{tikzpicture}}}
 \end{center}
 \end{itemize}
+\begin{tikzpicture}[overlay,remember picture]% strut buf
+\end{tikzpicture}%
 \end{frame}
 \subsection{Tiefendurchlauf}
+\savebox\pinguA{\tikz{\pingu[pants=paletteD,cup=paletteA,eyes wink]}}%
+\savebox\pinguB{\tikz{\pingu[eyes shiny,medal,left wing raise,sign post left={\faExclamation},hair=paletteA]}}%
 \begin{frame}{Graphen in der Tiefe}
 \begin{itemize}
     \item<2-> Breiten- und \only<3->{\textbf}{Tiefendurchläufe} gehen auch auf Graphen!
@@ -320,7 +325,7 @@ class Node {
         \graph{%
             (13) <->[K={4-5|handout:0}{0|handout:0}{6-|handout:1-}] (7) ->[K={5|handout:0}{0|handout:0}{6-|handout:1-}] (x2) ->[K={6|handout:0}{0|handout:0}{7-|handout:2-}] (6) ->[K={12|handout:0}{0|handout:0}{13-|handout:3-}] (7b) ->[K={8|handout:0}{0|handout:0}{9-|handout:2-}] (9) ->[K={9|handout:2}{0|handout:0}{10-|handout:3-}] (0) <-[K={8|handout:0}{0|handout:0}{9-|handout:2-}] (7b),
             (0) <-[K={12|handout:0}{0|handout:0}{13-|handout:3-}] (6) <-[K={14|handout:0}{0|handout:0}{15-|handout:3-}] (4) <-[K={13|handout:0}{0|handout:0}{14-|handout:3-}] (8) ->[K={13|handout:0}{0|handout:0}{14-|handout:3-}] (25) ->[K={15|handout:3}{0|handout:0}{16-|handout:4-}] (4), (9) ->[K={9|handout:2}{0|handout:0}{10-|handout:3-}] (10),
-            (x2) ->[K={6|handout:0}{0|handout:0}{7-|handout:2-}] (15),
+            (x2) ->[K={6|handout:0}{0|handout:0}{7-|handout:1-}] (15),
             (13) ->[K={4|handout:0}{0|handout:0}{5-|handout:1-}] (8) <->[K={6|handout:0}{0|handout:0}{7-12|handout:0},K={13|handout:0}{0|handout:0}{14-|handout:3-}] (x2),
             (13) ->[K={4|handout:0}{0|handout:0}{5-|handout:1-}] (25) ->[bend left=15,K={15|handout:3}{0|handout:0}{16-|handout:4-}] (6),
             (x2) ->[bend left,K={6|handout:0}{0|handout:0}{7-|handout:2-}] (7b),
@@ -329,19 +334,34 @@ class Node {
     \end{scope}
 \end{tikzpicture}}}
 \end{center}
-\end{itemize}
+\end{itemize}%
+\begin{tikzpicture}[overlay,remember picture]
+\onslide<16-|handout:1->{%
+    \node[below left=.25cm,yshift=.8cm,scale=.6] (pingu) at (current page.north east) {\rotatebox[origin=c]{180}{\usebox\pinguA}};
+    \node[left=-2mm,scale=.6,text width=6.75cm,align=center,yshift=-.33cm] at (pingu.west) {\textit{Achtung:} Zur Anschaulichkeit habe ich ein paar Kanten abgeändert!};
+}
+\onslide<17-|handout:2->{%
+\node[above right=.33cm,scale=.65,yshift=.5cm] (pingu) at (current page.south west) {\usebox\pinguB};
+\node[gray,above=1mm,text width=3.5cm,scale=.8,align=center,font=\scriptsize] at(pingu.north) {%
+    Die Reihenfolge, mit der die Kinder auf den Stack kommen, hängt natürlich von der Implementation ab!%
+};}
+\end{tikzpicture}%
 \end{frame}
 
 \section{Labyrinthe}
-\begin{frame}
-
+\fi
+\savebox\pinguA{\tikz{\pingu[eyes shock, wings shock]}}%
+\begin{frame}{Irrgärten}
+    \begin{itemize}[<+(1)->]
+        \item Ein Labyrinth ist auch nur ein cooler Graph.
+    \end{itemize}
+\begin{tikzpicture}[overlay,remember picture]
+\onslide<3-|handout:1->{%
+    \node[below left=.25cm,yshift=.8cm,scale=.6] (pingu) at (current page.north east) {\rotatebox[origin=c]{180}{\usebox\pinguA}};
+    \node[left=-2mm,scale=.8,text width=6.75cm,align=center,yshift=-.33cm] at (pingu.west) {Mazes Exposed!!!!};
+}
+\end{tikzpicture}
 \end{frame}
-
-\section{Implementation}
-\begin{frame}
-
-\end{frame}
-
 
 \section{Abschluss}
 \begin{frame}
