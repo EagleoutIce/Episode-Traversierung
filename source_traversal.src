@@ -9,7 +9,7 @@
 \savebox\pinguB{\tikz{\pingu[glasses, left eye wink, right wing grab,tie=paletteB]}}%
 \begin{frame}{Der binäre Baum}
 \onslide<2->{\centering\tree{%
-    [42,name=root[19,name=inner1[7,name=inner2[3,name=leaf1][-2,name=leaf2]][8,name=leaf3]][-5,name=inner3[-9,name=leaf4]]]%
+    [25,name=root[42,name=inner1[13,name=inner2[9,name=leaf1][-4,name=leaf2]][8,name=leaf3]][-4,name=inner3[-9,name=leaf4]]]%
     \only<12-|handout:2>{\scope[opacity=.5]}
     \onslide<3->{\fill[shadeA] (root.north)++(0,2mm) circle [radius=2.15pt] node[left=1.65mm,paletteA,font=\sbfamily] (dr) {Wurzel};
     \node[below=-4pt,gray,font=\scriptsize\itshape] at (dr.south) {root};}
@@ -62,24 +62,26 @@
 \savebox\pinguA{\tikz{\pingu[headband,glow=paletteC,eyes angry,right wing grab,left wing wave]}}%
 \savebox\pinguB{\tikz{\pingu[wings shock,eyes=wink,sunglasses,heart=gray!20!white]}}%
 \savebox\pinguC{\tikz{\pingu[right wing grab,left wing wave,hand cast left=\faExclamation,hand cast left color=paletteA,eye patch right]}}%
+\savebox\pinguD{\tree[opacity=.5]{[9,w[15,w[8,w]][2,w[7,w][3,m,name=2b][4,w]][3,m,name=3[9,name=9][2,name=2]]]\scope[opacity=.5]\pgfinterruptboundingbox\draw[shadeA,ultra thick,rounded corners] (9.south west)++(-.5cm,-.5cm) rectangle ([xshift=.5cm,yshift=.5cm]9.north east);\draw[shadeA,ultra thick,rounded corners] (2.south west)++(-.5cm,-.5cm) rectangle ([xshift=.5cm,yshift=.5cm]2.north east);\node[above right=1.6mm,font=\sbfamily,paletteA] (dk) at(3.north east) {Knoten};\node[below right,yshift=4pt,gray,font=\scriptsize\itshape,align=left] at (dk.south west) {Mit zwei\\Teilbäumen};\node[below=12pt,gray,align=center,font=\scriptsize\itshape] at (9.south) {{\upshape\sbfamily Teilbaum 1}\\(mit Wurzel 9)};\node[below=12pt,gray,align=center,font=\scriptsize\itshape] at (2.south) {{\upshape\sbfamily Teilbaum 2}\\(mit Wurzel 2)};\node[below=1.25mm,font=\sbfamily,paletteA] (dk) at(2b.south) {Knoten};\node[below=-4pt,gray,font=\scriptsize\itshape] at (dk.south) {Ohne Teilbäume};\endpgfinterruptboundingbox\endscope}}
 \begin{frame}{Der rekursive Baum}
 \centering
-\only<2|handout:0>{\tree{[9[15[8]][2[7][3][2][4]][3[9][2]]]}}%
-\only<3-4|handout:1>{\tree{[9,m[15,name=15[8,w,name=8]][2,name=2[7,w,name=7][3,w][2,w][4,w,name=4]][3,name=3[9,w,name=9][2,w,name=2b]]]\pgfinterruptboundingbox\only<4|handout:1>{\draw[shadeA,ultra thick,rounded corners] (7.south west)++(-.5cm,-.5cm) rectangle ([xshift=.5cm,yshift=.5cm]2.north east-|4.north east);\draw[shadeA,ultra thick,rounded corners] (8.south west)++(-.5cm,-.5cm) rectangle ([xshift=.5cm,yshift=.5cm]15.north east);\draw[shadeA,ultra thick,rounded corners] (9.south west)++(-.5cm,-.5cm) rectangle ([xshift=.5cm,yshift=.5cm]3.north east-|2b.north east);}\endpgfinterruptboundingbox}}%
-\only<5|handout:0>{\tree{[9,w[15,m[8]][2,w[7,w][3,w][2,w][4,w]][3,w[9,w][2,w]]]}}%
-\only<6|handout:0>{\tree{[9,w[15,w[8,w]][2,m[7][3][2][4]][3,w[9,w][2,w]]]}}%
-\only<7|handout:2>{\tree{[9,w[15,w[8,w]][2,w[7,w][3,w][2,w][4,w]][3,m,name=3[9,name=9][2,name=2]]]\pgfinterruptboundingbox\only<7|handout:2>{\draw[shadeA,ultra thick,rounded corners] (9.south west)++(-.5cm,-.5cm) rectangle ([xshift=.5cm,yshift=.5cm]9.north east);\draw[shadeA,ultra thick,rounded corners] (2.south west)++(-.5cm,-.5cm) rectangle ([xshift=.5cm,yshift=.5cm]2.north east);}\endpgfinterruptboundingbox}}%
-\only<8|handout:0>{\tree{[9,w[15,w[8,m]][2,w[7,w][3,w][2,w][4,w]][3,w[9,w][2,w]]]}}%
-\only<9|handout:0>{\tree{[9,w[15,w[8,w]][2,w[7,m][3,w][2,w][4,w]][3,w[9,w][2,w]]]}}%
-\only<10|handout:0>{\tree{[9,w[15,w[8,w]][2,w[7,w][3,m][2,w][4,w]][3,w[9,w][2,w]]]}}%
-\only<11|handout:3>{\tree{[9,w[15,w[8,w]][2,w[7,w][3,w][2,m][4,w]][3,w,name=3[9,w,name=9][2,w,name=2]]]}}%
-\only<12|handout:0>{\tree{[9,w[15,w[8,w]][2,w[7,w][3,w][2,w][4,m]][3,w[9,w][2,w]]]}}%
-\only<13|handout:0>{\tree{[9,w[15,w[8,w]][2,w[7,w][3,w][2,w][4,w]][3,w[9,m][2,w]]]}}%
-\only<14|handout:0>{\tree{[9,w[15,w[8,w]][2,w[7,w][3,w][2,w][4,w]][3,w[9,w][2,m]]]}}%
+\def\treewidth{.94\linewidth}%
+% ugly, but allows me to control handout better
+\only<2|handout:0>{\tree{[9[15[8]][2[7][3][4]][3[9][2]]]}}%
+\only<3-4|handout:1>{\tree{[9,m,name=root[15,name=15[8,w,name=8]][2,name=2[7,w,name=7][3,w,name=3b][4,w,name=4]][3,name=3[9,w,name=9][2,w,name=2b]]]\pgfinterruptboundingbox\only<4|handout:1>{\draw[shadeA,ultra thick,rounded corners] (7.south west)++(-.5cm,-.5cm) rectangle ([xshift=.5cm,yshift=.5cm]2.north east-|4.north east);\draw[shadeA,ultra thick,rounded corners] (8.south west)++(-.5cm,-.5cm) rectangle ([xshift=.5cm,yshift=.5cm]15.north east);\draw[shadeA,ultra thick,rounded corners] (9.south west)++(-.5cm,-.5cm) rectangle ([xshift=.5cm,yshift=.5cm]3.north east-|2b.north east);\node[above right=1.6mm,font=\sbfamily,paletteA] (dk) at(root.north east) {Knoten};\node[below right,yshift=4pt,gray,font=\scriptsize\itshape] at (dk.south west) {Mit drei Teilbäumen};\node[below=12pt,gray,align=center,font=\scriptsize\itshape] at (8.south) {{\upshape\sbfamily Teilbaum 1}\\(mit Wurzel 15)};\node[below=12pt,gray,align=center,font=\scriptsize\itshape] at (3b.south) {{\upshape\sbfamily Teilbaum 2}\\(mit Wurzel 2)};\path (9.south) -- (2b.south) node[below=12pt,midway,gray,align=center,font=\scriptsize\itshape] {{\upshape\sbfamily Teilbaum 3}\\(mit Wurzel 3)};}\endpgfinterruptboundingbox}}%
+\only<5|handout:0>{\tree{[9,w[15,m[8]][2,w[7,w][3,w][4,w]][3,w[9,w][2,w]]]}}%
+\only<6|handout:0>{\tree{[9,w[15,w[8,w]][2,m[7][3][4]][3,w[9,w][2,w]]]}}%
+\only<7|handout:2>{\tree{[9,w[15,w[8,w]][2,w[7,w][3,w][4,w]][3,m,name=3[9,name=9][2,name=2]]]\pgfinterruptboundingbox\only<7|handout:2>{\draw[shadeA,ultra thick,rounded corners] (9.south west)++(-.5cm,-.5cm) rectangle ([xshift=.5cm,yshift=.5cm]9.north east);\draw[shadeA,ultra thick,rounded corners] (2.south west)++(-.5cm,-.5cm) rectangle ([xshift=.5cm,yshift=.5cm]2.north east);\node[above right=1.6mm,font=\sbfamily,paletteA] (dk) at(3.north east) {Knoten};\node[below right,yshift=4pt,gray,font=\scriptsize\itshape,align=left] at (dk.south west) {Mit zwei\\Teilbäumen};\node[below=12pt,gray,align=center,font=\scriptsize\itshape] at (9.south) {{\upshape\sbfamily Teilbaum 1}\\(mit Wurzel 9)};\node[below=12pt,gray,align=center,font=\scriptsize\itshape] at (2.south) {{\upshape\sbfamily Teilbaum 2}\\(mit Wurzel 2)};}\endpgfinterruptboundingbox}}%
+\only<8|handout:0>{\tree{[9,w[15,w[8,m]][2,w[7,w][3,w][4,w]][3,w[9,w][2,w]]]}}%
+\only<9|handout:0>{\tree{[9,w[15,w[8,w]][2,w[7,m][3,w][4,w]][3,w[9,w][2,w]]]}}%
+\only<10-11|handout:3>{\tree{[9,w[15,w[8,w]][2,w[7,w][3,m,name=2][4,w]][3,w[9,w,name=9][2,w]]]\pgfinterruptboundingbox\onslide<11|handout:3>{\node[below=1.25mm,font=\sbfamily,paletteA] (dk) at(2.south) {Knoten};\node[below=-4pt,gray,font=\scriptsize\itshape] at (dk.south) {Ohne Teilbäume};}\endpgfinterruptboundingbox}}%
+\only<12|handout:0>{\tree{[9,w[15,w[8,w]][2,w[7,w][3,w][4,m]][3,w[9,w][2,w]]]}}%
+\only<13|handout:0>{\tree{[9,w[15,w[8,w]][2,w[7,w][3,w][4,w]][3,w[9,m][2,w]]]}}%
+\only<14|handout:0>{\tree{[9,w[15,w[8,w]][2,w[7,w][3,w][4,w]][3,w[9,w][2,m]]]}}%
 \begin{tikzpicture}[overlay,remember picture]
 \onslide<2-6|handout:1>{%
     \node[below left=.25cm,yshift=.8cm,scale=.6] (pingu) at (current page.north east) {\rotatebox[origin=c]{180}{\usebox\pinguA}};
-    \node[left,scale=.6,text width=6.75cm,align=center,yshift=-.33cm] at (pingu.west) {Jeder Knoten ist Wurzel eines Teilbaums};
+    \node[left=-2mm,scale=.6,text width=6.75cm,align=center,yshift=-.33cm] at (pingu.west) {Jeder Knoten ist Wurzel eines Teilbaums};
 }
 \onslide<7-10|handout:2>{%
     \node[below left=.25cm,yshift=.8cm,scale=.6] (pingu) at (current page.north east) {\rotatebox[origin=c]{180}{\usebox\pinguB}};
@@ -89,6 +91,7 @@
     \node[below left=.25cm,yshift=.8cm,scale=.6] (pingu) at (current page.north east) {\rotatebox[origin=c]{180}{\usebox\pinguC}};
     \node[left=-3mm,scale=.6,text width=6.75cm,align=center,yshift=-.75cm] at (pingu.west) {Beispielsweise:\smallskip\par \(\text{Left} < \text{Root} \leq \text{Right}\)\par \(\text{Root} = \text{Left} + \text{Right}\)};
 }
+\only<15|handout:4>{\node[below left=.5cm] at(current page.north east) {\usebox\pinguD};}%
 \end{tikzpicture}%
 \end{frame}
 

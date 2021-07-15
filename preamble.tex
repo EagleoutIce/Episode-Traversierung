@@ -101,14 +101,15 @@
 
 
 \setcounter{tocdepth}{4}
-\newsavebox\pinguA \newsavebox\pinguB \newsavebox\pinguC
+\newsavebox\pinguA \newsavebox\pinguB \newsavebox\pinguC \newsavebox\pinguD
 
 \usepackage[link]{qrcode}
 \outroright{\smash{\raisebox{1.33cm/2}{\qrcode[height=1.33cm]{https://github.com/EagleoutIce/Episode-Traversierung}}}\begin{tikzpicture}[remember picture,overlay]
     \node[above left,btdl@color@white,scale=.475] at (current page.south east) {\href{https://github.com/EagleoutIce/Episode-Traversierung}{Slides and \LaTeX-sources on GitHub!}};
 \end{tikzpicture}}
 
-\newcommand*\tree[2][]{\downsize{\linewidth}{\begin{forest}for tree={lblob,minimum width=2.5em,s sep=4em-level*.5em,edge={line width=3pt,lgray,line cap=butt},#1}#2\end{forest}}}
+\def\treewidth{\linewidth}
+\newcommand*\tree[2][]{\downsize{\treewidth}{\begin{forest}for tree={lblob,minimum width=2.5em,s sep=4em-level*.5em,edge={line width=3pt,lgray,line cap=butt},#1}#2\end{forest}}}
 \forestset{w/.style={fill=shadeGray,draw=shadeGray,text opacity=.5,edge={shadeGray}},m/.style={fill=shadeA,draw=shadeA,edge={shadeGray}},g/.style={fill=shadeA,draw=shadeA}}%
 
-\hfuzz=5cm
+\hfuzz=6cm
