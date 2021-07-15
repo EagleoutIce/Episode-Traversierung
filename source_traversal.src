@@ -134,15 +134,46 @@ class Node {
 \column{.35\linewidth}
 \centering
 \foreach[count=\i] \m in{8,7,6,3,5,2,4}{\onslide<\the\numexpr3+\i\relax->{\ifnum\i>1,\space\fi\m}}%
-\end{columns}
+\end{columns}%
 \end{frame}
-% TODO: Eindeutigkeit
 
 \subsection{Tiefendurchläufe}
 \subsubsection{Pre-Order}
+\savebox\pinguA{\tikz{\pingu[cape=pingu@main!80!white,left eye angry,right eye devil]}}%
 \begin{frame}{Pre-Order}
     \begin{center}
-        \onslide<2->{Erst Wurzel, dann Links, dann Rechts}
+        \onslide<2->{Erst \textit{Wurzel}, dann Links, dann Rechts}
+    \end{center}
+\vfill
+\begin{columns}[c,onlytextwidth]
+\column{.6\linewidth}
+\centering
+% ugly cheap
+\only<4|handout:0>{\tree{[8,name=8[7,name=7[,phantom][3,name=3]][6,name=6[5,name=5[,phantom][,phantom]][2,name=2[4,name=4][,phantom]]]]}}%
+\only<5|handout:0>{\tree{[8,g[7[,phantom][3]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
+\only<6|handout:0>{\tree{[8[7,g[,phantom][3]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
+\only<7|handout:0>{\tree{[8[7[,phantom][3,g]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
+\only<8|handout:0>{\tree{[8[7[,phantom][3]][6,g[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
+\only<9|handout:0>{\tree{[8[7[,phantom][3]][6[5,g[,phantom][,phantom]][2[4][,phantom]]]]}}%
+\only<10|handout:0>{\tree{[8[7[,phantom][3]][6[5[,phantom][,phantom]][2,g[4][,phantom]]]]}}%
+\only<11|handout:0>{\tree{[8[7[,phantom][3]][6[5[,phantom][,phantom]][2[4,g][,phantom]]]]}}%
+\only<12|handout:1>{\tree{[8[7[,phantom][3]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
+\column{.35\linewidth}
+\centering
+\foreach[count=\i] \m in{8,7,3,6,5,2,4}{\onslide<\the\numexpr4+\i\relax->{\ifnum\i>1,\space\fi\m}}%
+\end{columns}%
+\begin{tikzpicture}[overlay,remember picture]
+\onslide<3-|handout:1>{%
+    \node[below left=.25cm,yshift=.8cm,scale=.6] (pingu) at (current page.north east) {\rotatebox[origin=c]{180}{\usebox\pinguA}};
+    \node[left=-2mm,scale=.6,text width=6.75cm,align=center,yshift=-.33cm] at (pingu.west) {Allgemeiner: Erst Wurzel, dann Kinder};
+}
+\end{tikzpicture}%
+\end{frame}
+
+\subsubsection{In-Order}
+\begin{frame}{In-Order}
+    \begin{center}
+        \onslide<2->{Erst Links, dann \textit{Wurzel}, dann Rechts}
     \end{center}
 \vfill
 \begin{columns}[c,onlytextwidth]
@@ -150,29 +181,60 @@ class Node {
 \centering
 % ugly cheap
 \only<3|handout:0>{\tree{[8,name=8[7,name=7[,phantom][3,name=3]][6,name=6[5,name=5[,phantom][,phantom]][2,name=2[4,name=4][,phantom]]]]}}%
-\only<4|handout:0>{\tree{[8,g[7[,phantom][3]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
-\only<5|handout:0>{\tree{[8[7,g[,phantom][3]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
-\only<6|handout:0>{\tree{[8[7[,phantom][3]][6,g[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
-\only<7|handout:0>{\tree{[8[7[,phantom][3,g]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
-\only<8|handout:0>{\tree{[8[7[,phantom][3]][6[5,g[,phantom][,phantom]][2[4][,phantom]]]]}}%
-\only<9|handout:0>{\tree{[8[7[,phantom][3]][6[5[,phantom][,phantom]][2,g[4][,phantom]]]]}}%
-\only<10|handout:0>{\tree{[8[7[,phantom][3]][6[5[,phantom][,phantom]][2[4,g][,phantom]]]]}}%
+\only<4|handout:0>{\tree{[8[7,g[,phantom][3]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
+\only<5|handout:0>{\tree{[8[7[,phantom][3,g]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
+\only<6|handout:0>{\tree{[8,g[7[,phantom][3]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
+\only<7|handout:0>{\tree{[8[7[,phantom][3]][6[5,g[,phantom][,phantom]][2[4][,phantom]]]]}}%
+\only<8|handout:0>{\tree{[8[7[,phantom][3]][6,g[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
+\only<9|handout:0>{\tree{[8[7[,phantom][3]][6[5[,phantom][,phantom]][2[4,g][,phantom]]]]}}%
+\only<10|handout:0>{\tree{[8[7[,phantom][3]][6[5[,phantom][,phantom]][2,g[4][,phantom]]]]}}%
 \only<11|handout:1>{\tree{[8[7[,phantom][3]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
 \column{.35\linewidth}
 \centering
-\foreach[count=\i] \m in{8,7,6,3,5,2,4}{\onslide<\the\numexpr3+\i\relax->{\ifnum\i>1,\space\fi\m}}%
-\end{columns}
-\end{frame}
-
-\subsubsection{In-Order}
-\begin{frame}{In-Order}
-
+\foreach[count=\i] \m in{7,3,8,5,6,4,2}{\onslide<\the\numexpr3+\i\relax->{\ifnum\i>1,\space\fi\m}}%
+\end{columns}%
 \end{frame}
 
 \subsubsection{Post-Order}
+\savebox\pinguA{\tikz{\pingu[eyes shock,crown,heart=gray!20!white]}}%
 \begin{frame}{Post-Order}
-
+    \begin{center}
+        \onslide<2->{Erst Links, dann Rechts, dann \textit{Wurzel}}
+    \end{center}
+\vfill
+\begin{columns}[c,onlytextwidth]
+\column{.6\linewidth}
+\centering
+% ugly cheap
+\only<4|handout:0>{\tree{[8,name=8[7,name=7[,phantom][3,name=3]][6,name=6[5,name=5[,phantom][,phantom]][2,name=2[4,name=4][,phantom]]]]}}%
+\only<5|handout:0>{\tree{[8[7[,phantom][3,g]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
+\only<6|handout:0>{\tree{[8[7,g[,phantom][3]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
+\only<7|handout:0>{\tree{[8[7[,phantom][3]][6[5,g[,phantom][,phantom]][2[4][,phantom]]]]}}%
+\only<8|handout:0>{\tree{[8[7[,phantom][3]][6[5[,phantom][,phantom]][2[4,g][,phantom]]]]}}%
+\only<9|handout:0>{\tree{[8[7[,phantom][3]][6[5[,phantom][,phantom]][2,g[4][,phantom]]]]}}%
+\only<10|handout:0>{\tree{[8[7[,phantom][3]][6,g[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
+\only<11|handout:0>{\tree{[8,g[7[,phantom][3]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
+\only<12|handout:1>{\tree{[8[7[,phantom][3]][6[5[,phantom][,phantom]][2[4][,phantom]]]]}}%
+\column{.35\linewidth}
+\centering
+\foreach[count=\i] \m in{3,7,5,4,2,6,8}{\onslide<\the\numexpr4+\i\relax->{\ifnum\i>1,\space\fi\m}}%
+\end{columns}%
+\begin{tikzpicture}[overlay,remember picture]
+\onslide<3-|handout:1>{%
+    \node[below left=.25cm,yshift=.8cm,scale=.6] (pingu) at (current page.north east) {\rotatebox[origin=c]{180}{\usebox\pinguA}};
+    \node[left=-2mm,scale=.6,text width=6.75cm,align=center,yshift=-.33cm] at (pingu.west) {Allgemeiner: Erst Kinder, dann Wurzel};
+}
+\end{tikzpicture}%
 \end{frame}
+
+\subsubsection{Kommentare}
+\begin{frame}{Kommentare}
+    \begin{itemize}
+        \item Die Besuchsreihenfolge allein ist keine eindeutige Baumbeschreibung!
+    \end{itemize}
+\end{frame}
+% TODO: Eindeutigkeit
+% TODO: reverse
 
 \section{Graphen}
 \begin{frame}
