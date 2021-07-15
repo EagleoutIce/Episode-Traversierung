@@ -1,7 +1,6 @@
 \input{preamble}
 
 \begin{document}
-\iffalse
 \section{Bäume}
 \subsection{Begrifflichkeiten}
 \SidebarCite{gh:tikzpingus}
@@ -257,10 +256,10 @@ class Node {
         \end{itemize}
     \end{itemize}
 \end{frame}
-\fi
 
 % TODO: am Ende noch mal übersicht was breadth- und was depth-first ist
 \section{Graphen}
+\subsection{Breitendurchlauf}
 \begin{frame}{Graphen}
 \begin{itemize}
     \item<2-> \only<3->{\textbf}{Breiten-} und Tiefendurchläufe gehen auch auf Graphen!
@@ -272,28 +271,31 @@ class Node {
     \node[lblob,T={4-5|handout:1}{6|handout:0}{7-|handout:2-}] (8) at(1.5,0) {8};
     \node[lblob,T={4-6|handout:1}{7|handout:0}{8-|handout:2-}] (25) at(1.5,-1.5) {25};
     \node[lblob,T={5-7|handout:1}{8|handout:0}{9-|handout:2-}] (x2) at(3,1.5) {-2};
-    \node[lblob,T={8-10|handout:0}{11|handout:0}{12-|handout:0}] (15) at(3,3) {15};
-    \node[lblob,T={14|handout:0}{15|handout:0}{16|handout:0}] (10) at(9,0) {10};
-    \node[lblob,T={7-9|handout:2}{10|handout:0}{11-|handout:0}] (4) at(3,-1.5) {4};
-    \node[lblob,T={7-8|handout:0}{9|handout:2}{10-|handout:0}] (6) at(4.5,0) {6};
-    \node[lblob,T={8-11|handout:2}{12|handout:0}{13-|handout:0}] (7b) at(6,1) {7};
-    \node[lblob,T={10-12|handout:0}{13|handout:0}{14-|handout:0}] (0) at(6,-1) {0};
-    \node[lblob,T={12-13|handout:0}{14|handout:0}{15-|handout:0}] (9) at(7.5,0) {9};
+    \node[lblob,T={8-10|handout:0}{11|handout:0}{12-|handout:3-}] (15) at(3,3) {15};
+    \node[lblob,T={14|handout:0}{15|handout:3-}{16|handout:0}] (10) at(9,0) {10};
+    \node[lblob,T={7-9|handout:2}{10|handout:0}{11-|handout:3-}] (4) at(3,-1.5) {4};
+    \node[lblob,T={7-8|handout:0}{9|handout:2}{10-|handout:3-}] (6) at(4.5,0) {6};
+    \node[lblob,T={8-11|handout:2}{12|handout:0}{13-|handout:3-}] (7b) at(6,1) {7};
+    \node[lblob,T={10-12|handout:0}{13|handout:0}{14-|handout:3-}] (0) at(6,-1) {0};
+    \node[lblob,T={12-13|handout:0}{14|handout:0}{15-|handout:3-}] (9) at(7.5,0) {9};
+    \onslide<2->{\node[below left,text width=7.15cm,scale=.75] at (current bounding box.north east) {{\sbfamily Queue-Buffer:}\smallskip\\{}[\,\only<3|handout:0>{13}\only<4|handout:0>{\textcolor{gray}{13,} 7, 8, 25}\only<5|handout:1>{\textcolor{gray}{13, 7,} 8, 25, -2}\only<6|handout:0>{\textcolor{gray}{13, 7, 8,} 25, -2}\only<7|handout:0>{\textcolor{gray}{13, 7, 8, 25,} -2, 6, 4}\only<8|handout:0>{\textcolor{gray}{13, 7, 8, 25, -2,} 6, 4, 15, 7}\only<9|handout:2>{\textcolor{gray}{13, 7, 8, 25, -2, 6,} 4, 15, 7}\only<10|handout:0>{\textcolor{gray}{13, 7, 8, 25, -2, 6, 4,} 15, 7, 0}\only<11|handout:0>{\textcolor{gray}{13, 7, 8, 25, -2, 6, 4, 15,} 7, 0}\only<12|handout:0>{\textcolor{gray}{13, 7, 8, 25, -2, 6, 4, 15, 7,} 0, 9}\only<13|handout:0>{\textcolor{gray}{13, 7, 8, 25, -2, 6, 4, 15, 7, 0,} 9}\only<14|handout:0>{\textcolor{gray}{13, 7, 8, 25, -2, 6, 4, 15, 7, 0, 9,} 10}\only<15-|handout:3->{\textcolor{gray}{13, 7, 8, 25, -2, 6, 4, 15, 7, 0, 9, 10}}\,]};}
     \begin{scope}[every path/.append style={draw,line width=3pt,lgray,line cap=butt},every new ->/.style={-{Kite[scale=.75]}},every new <->/.style={{Kite[scale=.75]}-{Kite[scale=.75]}}]
         \graph{%
-            (13) <->[K={4-5|handout:1}{0|handout:0}{6-|handout:1-}] (7) ->[K={5|handout:1}{0|handout:0}{6-|handout:2-}] (x2) ->[K={8|handout:0}{0|handout:0}{9-|handout:2-}] (6) ->[K={9|handout:2}{0|handout:0}{10-|handout:0}] (7b) ->[K={12|handout:0}{0|handout:0}{13-|handout:0}] (9) ->[K={14|handout:0}{0|handout:0}{15-|handout:0}] (0) ->[K={13|handout:0}{0|handout:0}{14-|handout:0}] (7b),
-            (0) ->[K={13|handout:0}{0|handout:0}{14-|handout:0}] (6) <->[K={9-10|handout:2}{0|handout:0}{11-|handout:0}] (4) ->[K={10|handout:0}{0|handout:0}{11-|handout:0}] (8) ->[K={6|handout:0}{0|handout:0}{7-|handout:2-}] (25) ->[K={7|handout:0}{0|handout:0}{8-|handout:2-}] (4), (9) ->[K={14|handout:0}{0|handout:0}{15-|handout:0}] (10),
+            (13) <->[K={4-5|handout:1}{0|handout:0}{6-|handout:1-}] (7) ->[K={5|handout:1}{0|handout:0}{6-|handout:2-}] (x2) ->[K={8|handout:0}{0|handout:0}{9-|handout:2-}] (6) ->[K={9|handout:2}{0|handout:0}{10-|handout:3-}] (7b) ->[K={12|handout:0}{0|handout:0}{13-|handout:3-}] (9) ->[K={14|handout:0}{0|handout:0}{15-|handout:3-}] (0) ->[K={13|handout:0}{0|handout:0}{14-|handout:3-}] (7b),
+            (0) ->[K={13|handout:0}{0|handout:0}{14-|handout:3-}] (6) <->[K={9-10|handout:2}{0|handout:0}{11-|handout:3-}] (4) ->[K={10|handout:0}{0|handout:0}{11-|handout:3-}] (8) ->[K={6|handout:0}{0|handout:0}{7-|handout:2-}] (25) ->[K={7|handout:0}{0|handout:0}{8-|handout:2-}] (4), (9) ->[K={14|handout:0}{0|handout:0}{15-|handout:3-}] (10),
             (x2) ->[K={8|handout:0}{0|handout:0}{9-|handout:2-}] (15),
-            (13) ->[K={4|handout:1}{0|handout:0}{5-|handout:1-}] (8) <->[K={6|handout:0}{0|handout:0}{7|handout:0},K={8|handout:0}{0|handout:0}{9-|handout:0}] (x2),
+            (13) ->[K={4|handout:1}{0|handout:0}{5-|handout:1-}] (8) <->[K={6|handout:0}{0|handout:0}{7|handout:0},K={8|handout:0}{0|handout:0}{9-|handout:3-}] (x2),
             (13) ->[K={4|handout:1}{0|handout:0}{5-|handout:1-}] (25) ->[bend left=15,K={7|handout:0}{0|handout:0}{8-|handout:2-}] (6),
             (x2) ->[bend left,K={8|handout:0}{0|handout:0}{9-|handout:2-}] (7b),
-            (4) <->[bend right,K={10|handout:0}{0|handout:0}{11-12|handout:0},K={13|handout:0}{0|handout:0}{14-|handout:0}] (0)
+            (4) <->[bend right,K={10|handout:0}{0|handout:0}{11-12|handout:3-},K={13|handout:0}{0|handout:0}{14-|handout:3-}] (0)
         };
     \end{scope}
 \end{tikzpicture}}}
 \end{center}
 \end{itemize}
 \end{frame}
+\subsection{Tiefendurchlauf}
+% TODO: Tiefendurchlauf extra slide; same graph -> use stack
 
 \section{Labyrinthe}
 \begin{frame}
