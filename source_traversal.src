@@ -5,8 +5,10 @@
 \subsection{Begrifflichkeiten}
 \SidebarCite{gh:tikzpingus}
 \SidebarCite{gh:episode-heaps}
-\begin{frame}{Der Baum}
-\onslide<2->{\centering\heap{%
+\savebox\pinguA{\tikz{\pingu[glasses round, right eye wink, right wing grab,bow tie=paletteA]}}%
+\savebox\pinguB{\tikz{\pingu[glasses, left eye wink, right wing grab,tie=paletteA]}}%
+\begin{frame}{Der binäre Baum}
+\onslide<2->{\centering\tree{%
     [42,name=root[19,name=inner1[7,name=inner2[3,name=leaf1][-2,name=leaf2]][8,name=leaf3]][-5,name=inner3[-9,name=leaf4]]]%
     \only<12-|handout:2>{\scope[opacity=.5]}
     \onslide<3->{\fill[shadeA] (root.north)++(0,2mm) circle [radius=2.15pt] node[left=1.65mm,paletteA,font=\sbfamily] (dr) {Wurzel};
@@ -44,6 +46,17 @@
     \endpgfonlayer
     \only<12-|handout:2>{\endscope}
 }}
+\begin{tikzpicture}[overlay,remember picture]
+    \onslide<6-11|handout:1>{%
+        \node[below left=.25cm,yshift=.8cm,scale=.6] (pingu) at (current page.north east) {\rotatebox[origin=c]{180}{\usebox\pinguA}};
+        \node[left,scale=.6,text width=6.75cm,align=center,yshift=-.33cm] at (pingu.west) {\textcolor{gray}{Zur Wiederholung:}\par Blätter haben keine Kindknoten.};
+    }
+\onslide<12-|handout:2>{%
+    \node[below left=.25cm,yshift=.8cm,scale=.6] (pingu) at (current page.north east) {\rotatebox[origin=c]{180}{\usebox\pinguB}};
+    \node[left,scale=.6,text width=6.75cm,align=center,yshift=-.33cm] at (pingu.west) {Die gilt auch für Bäume mit mehr als zwei Kindern.};
+}
+
+\end{tikzpicture}%
 \end{frame}
 
 \begin{frame}{Der rekursive Baum}
