@@ -1,7 +1,6 @@
 \input{preamble}
 
 \begin{document}
-\iffalse
 \section{Bäume}
 \subsection{Begrifflichkeiten}
 \SidebarCite{gh:tikzpingus}
@@ -146,7 +145,7 @@ class Node {
 \savebox\pinguA{\tikz{\pingu[cape=pingu@main!80!white,left eye angry,right eye devil]}}%
 \begin{frame}{Pre-Order\quad {\footnotesize\sbfamily\color{shadeA}(Depth-First)}}
     \begin{center}
-        \onslide<2->{Erst \textit{Wurzel}, dann Links, dann Rechts}
+        \onslide<2->{Erst \textit{Wurzel}, dann Links, dann Rechts.}
     \end{center}
 \vfill
 \begin{columns}[c,onlytextwidth]
@@ -178,7 +177,7 @@ class Node {
 \savebox\pinguA{\tikz{\pingu[eyes shiny,halo]}}%
 \begin{frame}{In-Order\quad {\footnotesize\sbfamily\color{shadeA}(Depth-First)}}
     \begin{center}
-        \onslide<2->{Erst Links, dann \textit{Wurzel}, dann Rechts}
+        \onslide<2->{Erst Links, dann \textit{Wurzel}, dann Rechts.}
     \end{center}
 \vfill
 \begin{columns}[c,onlytextwidth]
@@ -209,7 +208,7 @@ class Node {
 \savebox\pinguA{\tikz{\pingu[eyes shock,crown=pingu@silver,crown gem colors={paletteD!85!black}{paletteB!85!black}{paletteC!85!black}{paletteA!85!black}{paletteC!85!black}{paletteB!85!black}{paletteD!85!black},heart=gray!20!white]}}%
 \begin{frame}{Post-Order\quad {\footnotesize\sbfamily\color{shadeA}(Depth-First)}}
     \begin{center}
-        \onslide<2->{Erst Links, dann Rechts, dann \textit{Wurzel}}
+        \onslide<2->{Erst Links, dann Rechts, dann \textit{Wurzel}.}
     \end{center}
 \vfill
 \begin{columns}[c,onlytextwidth]
@@ -348,7 +347,7 @@ class Node {
 };}
 \end{tikzpicture}%
 \end{frame}
-\fi
+
 \section{Labyrinthe}
 \savebox\pinguA{\tikz{\pingu[eyes shock, wings shock]}}%
 \begin{frame}{Irrgärten}
