@@ -113,7 +113,8 @@ class Node {
 
 \subsection{Breitendurchläufe}
 \subsubsection{Level-Order}
-\begin{frame}{Level-Order}
+\SidebarCite{dive:bfs-dfs}
+\begin{frame}{Level-Order\quad {\footnotesize\sbfamily\color{shadeA}(Breadth)}}
     \begin{center}
         \onslide<2->{Ebene für Ebene, von links nach rechts.}
     \end{center}
@@ -142,7 +143,7 @@ class Node {
 \subsection{Tiefendurchläufe}
 \subsubsection{Pre-Order}
 \savebox\pinguA{\tikz{\pingu[cape=pingu@main!80!white,left eye angry,right eye devil]}}%
-\begin{frame}{Pre-Order}
+\begin{frame}{Pre-Order\quad {\footnotesize\sbfamily\color{shadeA}(Depth)}}
     \begin{center}
         \onslide<2->{Erst \textit{Wurzel}, dann Links, dann Rechts}
     \end{center}
@@ -174,7 +175,7 @@ class Node {
 
 \subsubsection{In-Order}
 \savebox\pinguA{\tikz{\pingu[eyes shiny,halo]}}%
-\begin{frame}{In-Order}
+\begin{frame}{In-Order\quad {\footnotesize\sbfamily\color{shadeA}(Depth)}}
     \begin{center}
         \onslide<2->{Erst Links, dann \textit{Wurzel}, dann Rechts}
     \end{center}
@@ -205,7 +206,7 @@ class Node {
 
 \subsubsection{Post-Order}
 \savebox\pinguA{\tikz{\pingu[eyes shock,crown=pingu@silver,crown gem colors={paletteD!85!black}{paletteB!85!black}{paletteC!85!black}{paletteA!85!black}{paletteC!85!black}{paletteB!85!black}{paletteD!85!black},heart=gray!20!white]}}%
-\begin{frame}{Post-Order}
+\begin{frame}{Post-Order\quad {\footnotesize\sbfamily\color{shadeA}(Depth)}}
     \begin{center}
         \onslide<2->{Erst Links, dann Rechts, dann \textit{Wurzel}}
     \end{center}
@@ -234,7 +235,7 @@ class Node {
 }
 \end{tikzpicture}%
 \end{frame}
-
+\SidebarReset
 \subsection{Kommentare}
 \begin{frame}{Kommentare\hfill\textcolor{shadeA}{\textbf{I}}}
     \begin{itemize}[<+(1)->]
@@ -366,12 +367,12 @@ class Node {
 \end{tikzpicture}}
 \end{center}
     \end{itemize}
-\begin{tikzpicture}[overlay,remember picture]
+\smash{\begin{tikzpicture}[overlay,remember picture]
 \onslide<3-|handout:1->{%
     \node[below left=.25cm,yshift=.8cm,scale=.6] (pingu) at (current page.north east) {\rotatebox[origin=c]{180}{\usebox\pinguA}};
     \node[left=1mm,scale=.9,yshift=-.33cm] at (pingu.west) {Mazes Exposed!!!!};
 }
-\end{tikzpicture}
+\end{tikzpicture}}%
 \end{frame}
 
 \subsection{Breitendurchlauf}
@@ -415,9 +416,19 @@ class Node {
 \end{frame}
 
 \section{Abschluss}
-\begin{frame}
-
+\SidebarCite{dive:traverse}
+\SidebarCite{dive:planning}
+\SidebarCite{dive:path-games}
+\begin{frame}{Abschließendes}
+\begin{itemize}[<+(1)->]
+    \itemsep12pt
+    \item Dies war ein primär visueller Blick auf Traversierungen.
+    \item Es gibt vieeel mehr (z.B. die \say{Wirbeltraversierung}).
+    \item Die Kenntnis über die iterative und rekursive Implementation ist nützlich!
+    \item Breiten- \& Tiefensuche helfen auch bei der Wegfindung.
+\end{itemize}
 \end{frame}
+\SidebarReset
 
 % TODO: wirbeltraversierung
 \end{document}
