@@ -350,6 +350,7 @@ class Node {
 
 \section{Labyrinthe}
 \savebox\pinguA{\tikz{\pingu[eyes shock, wings shock]}}%
+\savebox\pinguB{\tikz{\pingu[left eye shiny,silver medal,left wing raise,sign post left={\faHeart},hair=paletteB,monocle right]}}%
 \begin{frame}{Irrgärten}
     \begin{itemize}[<+(1)->]
         \item Ein Labyrinth ist auch nur ein cooler Graph.\bigskip
@@ -373,10 +374,17 @@ class Node {
     \node[below left=.25cm,yshift=.8cm,scale=.6] (pingu) at (current page.north east) {\rotatebox[origin=c]{180}{\usebox\pinguA}};
     \node[left=1mm,scale=.9,yshift=-.33cm] at (pingu.west) {Mazes Exposed!!!!};
 }
+\onslide<4->{
+\node[above right=.33cm,scale=.65,yshift=.5cm] (pingu) at (current page.south west) {\usebox\pinguB};
+\node[gray,above=1mm,text width=3.5cm,scale=.8,align=center,font=\scriptsize] at(pingu.north) {%
+    Hier darf der Läufer nicht diagonal gehen!%
+};
+}
 \end{tikzpicture}}%
 \end{frame}
 
 \subsection{Breitendurchlauf}
+\savebox\pinguB{\tikz{\pingu[left eye wink,bronze medal,left wing raise,sign post left={\faStar},hair=paletteC,monocle left, eye patch right]}}%
 \begin{frame}{Ein Breitendurchlauf}
     \begin{itemize}[<+(1)->]
         \item Ein einfaches \say{Labyrinth} und viel AHA:\bigskip
@@ -395,9 +403,18 @@ class Node {
 \end{tikzpicture}}
 \end{center}
     \end{itemize}
+\vspace*{-4.33mm}\smash{\begin{tikzpicture}[overlay,remember picture]
+\onslide<3->{
+\node[above right=.33cm,scale=.65,yshift=.5cm] (pingu) at (current page.south west) {\usebox\pinguB};
+\node[gray,above=1mm,text width=3.5cm,scale=.8,align=center,font=\scriptsize] at(pingu.north) {%
+    Hier darf der Läufer diagonal gehen!%
+};
+}
+\end{tikzpicture}}%
 \end{frame}
 
 \subsection{Tiefendurchlauf}
+\savebox\pinguB{\tikz{\pingu[left eye shiny,right eye wink,bronze medal,left wing raise,sign post left={\faInfo},hair=paletteD,monocle right]}}%
 \begin{frame}{Ein Tiefendurchlauf}
     \begin{itemize}[<+(1)->]
         \item Ein einfaches \say{Labyrinth} und viel AHA:\bigskip
@@ -416,6 +433,14 @@ class Node {
 \end{tikzpicture}}
 \end{center}
     \end{itemize}
+\vspace*{-4.33mm}\smash{\begin{tikzpicture}[overlay,remember picture]
+\onslide<3->{
+\node[above right=.33cm,scale=.65,yshift=.5cm] (pingu) at (current page.south west) {\usebox\pinguB};
+\node[gray,above=1mm,text width=3.5cm,scale=.8,align=center,font=\scriptsize] at(pingu.north) {%
+    Hier darf der Läufer diagonal gehen!%
+};
+}
+\end{tikzpicture}}%
 \end{frame}
 
 \section{Abschluss}
