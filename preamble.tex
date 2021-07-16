@@ -121,8 +121,30 @@
 \makeatletter
 \def\mtx@blk{X}
 \def\mtx@k{6mm}
-\tikzset{MTX@BLK/.style={rectangle,minimum size=\mtx@k,inner sep=\z@,outer sep=\z@,fill=#1,draw=gray,line width=1.15\p@}}
-\def\Matrix#1#2#3{%
+% calculate the number of steps required to stay visible
+\mode<presentation>{
+\def\mtx@split@gol#1|handout:#2\@nil{\the\numexpr#1-\beamer@slideinframe\relax}
+}\mode<handout>{% TODO: for handout, subtract handout trigger ids
+\def\mtx@split@gol#1|handout:#2\@nil{%
+    \ifnum\beamer@slideinframe=1
+    \the\numexpr#1-\triga\relax
+    \else\ifnum\beamer@slideinframe=2
+    \the\numexpr#1-\trigb\relax
+    \else\ifnum\beamer@slideinframe=3
+    \the\numexpr#1-\trigc\relax
+    \else\ifnum\beamer@slideinframe=4
+    \the\numexpr#1-\trigd\relax
+    \else\ifnum\beamer@slideinframe=5
+    \the\numexpr#1-\trige\relax
+    \ifnum\beamer@slideinframe=6
+    \the\numexpr#1-\trigf\relax
+    \fi\fi\fi\fi\fi\fi
+}
+}
+\tikzset{MTX@BLK/.style={rectangle,minimum size=\mtx@k,inner sep=\z@,outer sep=\z@,fill=#1,draw=gray,line width=\p@}}
+\def\Matrix#1#2#3#4#5#6#7#8#9{%
+\def\triga{#4}\def\trigb{#5}\def\trigc{#6}\def\trigd{#7}\def\trige{#8}\def\trigf{#9}
+\scope[scale=1.15,every node/.append style={transform shape}]
 \scope
 \clip[rounded corners=2\p@] (.5*\mtx@k, -.5*\mtx@k) rectangle ++(#2*\mtx@k, -#3*\mtx@k);
 \foreach[count=\y] \line in {#1} {
@@ -132,8 +154,9 @@
         \ifx\tar\mtx@blk
             \node[MTX@BLK=gray!46!white] (\x-\y) at (\x*\mtx@k, -\y*\mtx@k) {};
         \else
+            \edef\mtx@tmp{\gol}%
             \only<\tar>{
-                \node[MTX@BLK=shadeB] (\x-\y) at (\x*\mtx@k, -\y*\mtx@k) {};
+                \node[MTX@BLK=shadeB,text=gray] (\x-\y) at (\x*\mtx@k, -\y*\mtx@k) {\footnotesize\expandafter\mtx@split@gol\mtx@tmp\@nil};
             }
             \only<\gol>{
                 \node[MTX@BLK=shadeA] (\x-\y) at (\x*\mtx@k, -\y*\mtx@k) {};
@@ -145,6 +168,6 @@
     }
 }
 \endscope
-\draw[rounded corners=2\p@,gray,line width=2\p@] (.5*\mtx@k, -.5*\mtx@k) rectangle ++(#2*\mtx@k, -#3*\mtx@k);
-}
+\draw[rounded corners=2\p@,gray,line width=1.9\p@] (.5*\mtx@k, -.5*\mtx@k) rectangle ++(#2*\mtx@k, -#3*\mtx@k);
+\endscope}
 \makeatother
