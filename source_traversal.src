@@ -114,7 +114,7 @@ class Node {
 \subsection{Breitendurchläufe}
 \subsubsection{Level-Order}
 \SidebarCite{dive:bfs-dfs}
-\begin{frame}{Level-Order\quad {\footnotesize\sbfamily\color{shadeA}(Breadth)}}
+\begin{frame}{Level-Order\quad {\footnotesize\sbfamily\color{shadeA}(Breadth-First)}}
     \begin{center}
         \onslide<2->{Ebene für Ebene, von links nach rechts.}
     \end{center}
@@ -143,7 +143,7 @@ class Node {
 \subsection{Tiefendurchläufe}
 \subsubsection{Pre-Order}
 \savebox\pinguA{\tikz{\pingu[cape=pingu@main!80!white,left eye angry,right eye devil]}}%
-\begin{frame}{Pre-Order\quad {\footnotesize\sbfamily\color{shadeA}(Depth)}}
+\begin{frame}{Pre-Order\quad {\footnotesize\sbfamily\color{shadeA}(Depth-First)}}
     \begin{center}
         \onslide<2->{Erst \textit{Wurzel}, dann Links, dann Rechts}
     \end{center}
@@ -175,7 +175,7 @@ class Node {
 
 \subsubsection{In-Order}
 \savebox\pinguA{\tikz{\pingu[eyes shiny,halo]}}%
-\begin{frame}{In-Order\quad {\footnotesize\sbfamily\color{shadeA}(Depth)}}
+\begin{frame}{In-Order\quad {\footnotesize\sbfamily\color{shadeA}(Depth-First)}}
     \begin{center}
         \onslide<2->{Erst Links, dann \textit{Wurzel}, dann Rechts}
     \end{center}
@@ -206,7 +206,7 @@ class Node {
 
 \subsubsection{Post-Order}
 \savebox\pinguA{\tikz{\pingu[eyes shock,crown=pingu@silver,crown gem colors={paletteD!85!black}{paletteB!85!black}{paletteC!85!black}{paletteA!85!black}{paletteC!85!black}{paletteB!85!black}{paletteD!85!black},heart=gray!20!white]}}%
-\begin{frame}{Post-Order\quad {\footnotesize\sbfamily\color{shadeA}(Depth)}}
+\begin{frame}{Post-Order\quad {\footnotesize\sbfamily\color{shadeA}(Depth-First)}}
     \begin{center}
         \onslide<2->{Erst Links, dann Rechts, dann \textit{Wurzel}}
     \end{center}
@@ -352,7 +352,7 @@ class Node {
 \savebox\pinguA{\tikz{\pingu[eyes shock, wings shock]}}%
 \begin{frame}{Irrgärten}
     \begin{itemize}[<+(1)->]
-        \item Ein Labyrinth ist auch nur ein cooler Graph.\medskip
+        \item Ein Labyrinth ist auch nur ein cooler Graph.\bigskip
 \begin{center}
 \onslide<4->{\begin{tikzpicture}
 \Matrix{%
@@ -367,7 +367,7 @@ class Node {
 \end{tikzpicture}}
 \end{center}
     \end{itemize}
-\smash{\begin{tikzpicture}[overlay,remember picture]
+\vspace*{-4.33mm}\smash{\begin{tikzpicture}[overlay,remember picture]
 \onslide<3-|handout:1->{%
     \node[below left=.25cm,yshift=.8cm,scale=.6] (pingu) at (current page.north east) {\rotatebox[origin=c]{180}{\usebox\pinguA}};
     \node[left=1mm,scale=.9,yshift=-.33cm] at (pingu.west) {Mazes Exposed!!!!};
