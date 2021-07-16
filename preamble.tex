@@ -141,7 +141,7 @@
     \fi\fi\fi\fi\fi\fi
 }
 }
-\tikzset{MTX@BLK/.style={rectangle,minimum size=\mtx@k,inner sep=\z@,outer sep=\z@,fill=#1,draw=gray,line width=\p@}}
+\tikzset{MTX@BLK/.style={rectangle,minimum size=\mtx@k,inner sep=\z@,outer sep=\z@,fill=#1,draw=gray!80!white,line width=.75\p@}}
 \def\Matrix#1#2#3#4#5#6#7#8#9{%
 \def\triga{#4}\def\trigb{#5}\def\trigc{#6}\def\trigd{#7}\def\trige{#8}\def\trigf{#9}
 \scope[scale=1.15,every node/.append style={transform shape}]
@@ -152,7 +152,7 @@
         % overdraw me baby
         \node[MTX@BLK=white] (\x-\y) at (\x*\mtx@k, -\y*\mtx@k) {};
         \ifx\tar\mtx@blk
-            \node[MTX@BLK=gray!46!white] (\x-\y) at (\x*\mtx@k, -\y*\mtx@k) {};
+            \node[MTX@BLK=gray!38!white] (\x-\y) at (\x*\mtx@k, -\y*\mtx@k) {};
         \else
             \edef\mtx@tmp{\gol}%
             \only<\tar>{
@@ -162,12 +162,12 @@
                 \node[MTX@BLK=shadeA] (\x-\y) at (\x*\mtx@k, -\y*\mtx@k) {};
             }
             \only<\ded>{
-                \node[MTX@BLK=shadeGray] (\x-\y) at (\x*\mtx@k, -\y*\mtx@k) {\T{\color{gray}\textbullet}};
+                \node[MTX@BLK=shadeGray] (\x-\y) at (\x*\mtx@k, -\y*\mtx@k) {\T{\color{gray!80!white}\textbullet}};
             }
         \fi\
     }
 }
 \endscope
-\draw[rounded corners=2\p@,gray,line width=1.9\p@] (.5*\mtx@k, -.5*\mtx@k) rectangle ++(#2*\mtx@k, -#3*\mtx@k);
+\draw[rounded corners=2\p@,gray!80!white,line width=1.65\p@] (.5*\mtx@k, -.5*\mtx@k) rectangle ++(#2*\mtx@k, -#3*\mtx@k);
 \endscope}
 \makeatother
