@@ -1,7 +1,6 @@
 \input{preamble}
 
 \begin{document}
-\iffalse
 \section{Bäume}
 \subsection{Begrifflichkeiten}
 \SidebarCite{gh:tikzpingus}
@@ -382,7 +381,6 @@ class Node {
 }
 \end{tikzpicture}}%
 \end{frame}
-\fi
 
 \subsection{Breitendurchlauf}
 \savebox\pinguB{\tikz{\pingu[left eye wink,bronze medal,left wing raise,sign post left={\faStar},hair=paletteC,monocle left, eye patch right]}}%
