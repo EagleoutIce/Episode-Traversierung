@@ -1,7 +1,6 @@
 \input{preamble}
 
 \begin{document}
-\iffalse
 \section{Bäume}
 \subsection{Begrifflichkeiten}
 \SidebarCite{gh:tikzpingus}
@@ -265,10 +264,10 @@ class Node {
 \subsection{Breitendurchlauf}
 \begin{frame}{Graphen in der Breite}
 \begin{itemize}
-    \item<2-> \only<3->{\textbf}{Breiten-} und Tiefendurchläufe gehen auch auf Graphen!
+    \item<2-> \only<2->{\textbf}{Breiten-} und Tiefendurchläufe gehen auch auf Graphen!\medskip
 \begin{center}
 \vfill% TODO: Animation for bfs and dfs on sepearate slides
-\scalebox{.9}{\onslide<3->{\begin{tikzpicture}[lblob/.append style={minimum width=2.5em}]
+\scalebox{.865}{\onslide<3->{\begin{tikzpicture}[lblob/.append style={minimum width=2.5em}]
     \node[lblob,alt=<4|handout:0>{fill=shadeA,draw=shadeA,font=\sbfamily}{fill=shadeB,draw=shadeB,font=\normalfont},alt=<5-|handout:1->{fill=shadeGray,draw=shadeGray,opacity=.5}] (13) at(0,0) {13};
     \node[lblob,T={4}{5|handout:1}{6-|handout:2-}] (7) at(1.5,1.5) {7};
     \node[lblob,T={4-5|handout:1}{6|handout:0}{7-|handout:2-}] (8) at(1.5,0) {8};
@@ -287,7 +286,7 @@ class Node {
             (13) <->[K={4-5|handout:1}{0|handout:0}{6-|handout:1-}] (7) ->[K={5|handout:1}{0|handout:0}{6-|handout:2-}] (x2) ->[K={8|handout:0}{0|handout:0}{9-|handout:2-}] (6) ->[K={9|handout:2}{0|handout:0}{10-|handout:3-}] (7b) ->[K={12|handout:0}{0|handout:0}{13-|handout:3-}] (9) ->[K={14|handout:0}{0|handout:0}{15-|handout:3-}] (0) ->[K={13|handout:0}{0|handout:0}{14-|handout:3-}] (7b),
             (0) ->[K={13|handout:0}{0|handout:0}{14-|handout:3-}] (6) <->[K={9-10|handout:2}{0|handout:0}{11-|handout:3-}] (4) ->[K={10|handout:0}{0|handout:0}{11-|handout:3-}] (8) ->[K={6|handout:0}{0|handout:0}{7-|handout:2-}] (25) ->[K={7|handout:0}{0|handout:0}{8-|handout:2-}] (4), (9) ->[K={14|handout:0}{0|handout:0}{15-|handout:3-}] (10),
             (x2) ->[K={8|handout:0}{0|handout:0}{9-|handout:2-}] (15),
-            (13) ->[K={4|handout:1}{0|handout:0}{5-|handout:1-}] (8) <->[K={6|handout:0}{0|handout:0}{7|handout:0},K={8|handout:0}{0|handout:0}{9-|handout:3-}] (x2),
+            (13) ->[K={4|handout:1}{0|handout:0}{5-|handout:1-}] (8) <->[K={6|handout:0}{0|handout:0}{7|handout:0},K={8|handout:0}{0|handout:0}{9-|handout:2-}] (x2),
             (13) ->[K={4|handout:1}{0|handout:0}{5-|handout:1-}] (25) ->[bend left=15,K={7|handout:0}{0|handout:0}{8-|handout:2-}] (6),
             (x2) ->[bend left,K={8|handout:0}{0|handout:0}{9-|handout:2-}] (7b),
             (4) <->[bend right,K={10|handout:0}{0|handout:0}{11-12|handout:3-},K={13|handout:0}{0|handout:0}{14-|handout:3-}] (0)
@@ -304,10 +303,10 @@ class Node {
 \savebox\pinguB{\tikz{\pingu[eyes shiny,medal,left wing raise,sign post left={\faExclamation},hair=paletteA]}}%
 \begin{frame}{Graphen in der Tiefe}
 \begin{itemize}
-    \item<2-> Breiten- und \only<3->{\textbf}{Tiefendurchläufe} gehen auch auf Graphen!
+    \item<2-> Breiten- und \only<2->{\textbf}{Tiefendurchläufe} gehen auch auf Graphen!\medskip
 \begin{center}
 \vfill% TODO: Animation for bfs and dfs on sepearate slides
-\scalebox{.9}{\onslide<3->{\begin{tikzpicture}[lblob/.append style={minimum width=2.5em}]
+\scalebox{.865}{\onslide<3->{\begin{tikzpicture}[lblob/.append style={minimum width=2.5em}]
     \node[lblob,alt=<4|handout:0>{fill=shadeA,draw=shadeA,font=\sbfamily}{fill=shadeB,draw=shadeB,font=\normalfont},alt=<5-|handout:1->{fill=shadeGray,draw=shadeGray,opacity=.5}] (13) at(0,0) {13};
     \node[lblob,T={4|handout:0}{5|handout:0}{6-|handout:1-}] (7) at(1.5,1.5) {7};
     \node[lblob,T={4-12|handout:2}{13|handout:0}{14-|handout:3-}] (8) at(1.5,0) {8};
@@ -374,12 +373,11 @@ class Node {
 }
 \end{tikzpicture}
 \end{frame}
-\fi
 
 \subsection{Breitendurchlauf}
 \begin{frame}{Ein Breitendurchlauf}
     \begin{itemize}[<+(1)->]
-        \item Ein einfaches \say{Labyrinth} und viel AHA:\medskip
+        \item Ein einfaches \say{Labyrinth} und viel AHA:\bigskip
 \begin{center}
 \onslide<3->{\begin{tikzpicture}
 \Matrix{%
@@ -396,6 +394,25 @@ class Node {
     \end{itemize}
 \end{frame}
 
+\subsection{Tiefendurchlauf}
+\begin{frame}{Ein Tiefendurchlauf}
+    \begin{itemize}[<+(1)->]
+        \item Ein einfaches \say{Labyrinth} und viel AHA:\bigskip
+\begin{center}
+\onslide<3->{\begin{tikzpicture}
+\Matrix{%
+{X,X,X,X,X,X,X,X,X,X},
+{X,1-3|handout:0/4|handout:1/5-|handout:2-,4|handout:1/5|handout:0/6-|handout:2-,5|handout:0/6|handout:0/7-|handout:2-,6|handout:0/7|handout:0/8-|handout:2-,7|handout:0/8|handout:0/9-|handout:2-,8|handout:0/9|handout:0/10-|handout:2-,9|handout:0/10|handout:0/11-|handout:2-,10|handout:0/11|handout:2/12-|handout:3-,X},
+{X,4-24|handout:1-4/25|handout:0/26-|handout:5-,4-25|handout:1-4/26|handout:0/27-|handout:5-,5-26|handout:2-4/27|handout:0/28-|handout:5-,6-11|handout:2/12|handout:0/13-|handout:3-,X,X,X,X,X},
+{X,21-23|handout:0/24|handout:0/25-|handout:5-,20-28|handout:3-4/29|handout:5/30-|handout:6-,12-27|handout:3-4/28|handout:0/29-|handout:5-,12|handout:0/13|handout:0/14-|handout:3-,X,X,X,X,X},
+{X,21|handout:0/22|handout:0/23-|handout:5-,20|handout:3-4/21|handout:0/22-|handout:5-,13-19|handout:3/20|handout:4/21-|handout:5-,13|handout:0/14|handout:3/15-|handout:4-,14-15|handout:3/16|handout:0/17-|handout:4-,16|handout:0/17|handout:0/18-|handout:4-,17|handout:0/18|handout:0/19-|handout:4-,18|handout:0/19|handout:0/20-|handout:4-,X},
+{X,22|handout:0/23|handout:0/24-|handout:5-,X,X,14|handout:3/15|handout:0/16-|handout:4-,X,X,X,X,X},
+{X,X,X,X,X,X,X,X,X,X}%
+}{10}{7}
+\end{tikzpicture}}
+\end{center}
+    \end{itemize}
+\end{frame}
 
 \section{Abschluss}
 \begin{frame}
