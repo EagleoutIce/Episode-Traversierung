@@ -124,6 +124,7 @@
 % calculate the number of steps required to stay visible
 \mode<presentation>{
 \def\mtx@split@gol#1|handout:#2\@nil{\the\numexpr#1-\beamer@slideinframe\relax}
+\def\mtx@split@tar#1|handout:#2\@nil{}
 }\mode<handout>{% TODO: for handout, subtract handout trigger ids
 \def\mtx@split@gol#1|handout:#2\@nil{%
     \ifnum\beamer@slideinframe=1
@@ -140,6 +141,7 @@
     \the\numexpr#1-\trigf\relax
     \fi\fi\fi\fi\fi\fi
 }
+\let\mtx@split@tar\mtx@split@gol
 }
 \tikzset{MTX@BLK/.style={rectangle,minimum size=\mtx@k,inner sep=\z@,outer sep=\z@,fill=#1,draw=gray!80!white,line width=.75\p@}}
 \def\Matrix#1#2#3#4#5#6#7#8#9{%
@@ -149,12 +151,12 @@
 \clip[rounded corners=2\p@] (.5*\mtx@k, -.5*\mtx@k) rectangle ++(#2*\mtx@k, -#3*\mtx@k);
 \foreach[count=\y] \line in {#1} {
     \foreach[count=\x] \tar/\gol/\ded in \line {
-        % overdraw me baby
-        \node[MTX@BLK=white] (\x-\y) at (\x*\mtx@k, -\y*\mtx@k) {};
         \ifx\tar\mtx@blk
             \node[MTX@BLK=gray!38!white] (\x-\y) at (\x*\mtx@k, -\y*\mtx@k) {};
         \else
             \edef\mtx@tmp{\gol}%
+            % overdraw me baby
+            \node[MTX@BLK=white,text=lightgray] (\x-\y) at (\x*\mtx@k, -\y*\mtx@k) {\footnotesize\expandafter\mtx@split@tar\mtx@tmp\@nil};
             \only<\tar>{
                 \node[MTX@BLK=shadeB,text=gray] (\x-\y) at (\x*\mtx@k, -\y*\mtx@k) {\footnotesize\expandafter\mtx@split@gol\mtx@tmp\@nil};
             }
