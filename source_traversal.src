@@ -80,8 +80,8 @@
 \only<14|handout:0>{\tree{[9,w[15,w[8,w]][2,w[7,w][3,w][4,w]][3,w[9,w][2,m]]]}}%
 \onlyenv<16-|handout:4>\vspace*{4em}\begin{itemize}
     \itemsep=10pt
-    \item<16-> Binärbäume: \textit{linker} und \textit{rechter} Teilbaum.
-    \item<17-> \textit{Fehlende} Teilbäume heißen auch \textit{leer}.
+    \item<16-> Binärbäume: \textit{linker} und \textit{rechter} Teilbaum
+    \item<17-> \textit{Fehlende} Teilbäume heißen auch \textit{leer}
     \item<18-> Die Betrachtung wird in Java benutzt: \lstfs{9}
 \actionenv<19->
 \begin{plainjava}[belowskip=0pt]
@@ -145,7 +145,7 @@ class Node {
 \savebox\pinguA{\tikz{\pingu[cape=pingu@main!80!white,left eye angry,right eye devil]}}%
 \begin{frame}{Pre-Order\quad {\footnotesize\sbfamily\color{shadeA}(Depth-First)}}
     \begin{center}
-        \onslide<2->{Erst \textit{Wurzel}, dann Links, dann Rechts.}
+        \onslide<2->{Erst \textit{Wurzel}, dann Links, dann Rechts}
     \end{center}
 \vfill
 \begin{columns}[c,onlytextwidth]
@@ -177,7 +177,7 @@ class Node {
 \savebox\pinguA{\tikz{\pingu[eyes shiny,halo]}}%
 \begin{frame}{In-Order\quad {\footnotesize\sbfamily\color{shadeA}(Depth-First)}}
     \begin{center}
-        \onslide<2->{Erst Links, dann \textit{Wurzel}, dann Rechts.}
+        \onslide<2->{Erst Links, dann \textit{Wurzel}, dann Rechts}
     \end{center}
 \vfill
 \begin{columns}[c,onlytextwidth]
@@ -208,7 +208,7 @@ class Node {
 \savebox\pinguA{\tikz{\pingu[eyes shock,crown=pingu@silver,crown gem colors={paletteD!85!black}{paletteB!85!black}{paletteC!85!black}{paletteA!85!black}{paletteC!85!black}{paletteB!85!black}{paletteD!85!black},heart=gray!20!white]}}%
 \begin{frame}{Post-Order\quad {\footnotesize\sbfamily\color{shadeA}(Depth-First)}}
     \begin{center}
-        \onslide<2->{Erst Links, dann Rechts, dann \textit{Wurzel}.}
+        \onslide<2->{Erst Links, dann Rechts, dann \textit{Wurzel}}
     \end{center}
 \vfill
 \begin{columns}[c,onlytextwidth]
@@ -251,11 +251,11 @@ class Node {
     \begin{itemize}
         \itemsep10pt
         \item<2-> Es gibt auch \say{reverse}-Varianten.\smallskip\par
-            \onslide<3->{Diese bearbeiten den rechten \textit{vor} dem linken Teilbaum.}
+            \onslide<3->{Diese bearbeiten den rechten \textit{vor} dem linken Teilbaum}
         \item<4-> Es werden Breiten- und Tiefendurchläufe unterschieden: \medskip\begin{itemize}
             \itemsep8pt
-            \item<5-> \textit{depth-first}:\par Bearbeitet Pfad komplett und dann Abzweigungen.
-            \item<6-> \textit{breadth-first}:\par Breitet sich über alle Abzweigungen gleichmäßig aus.
+            \item<5-> \textit{depth-first}:\par Bearbeitet Pfad komplett und dann Abzweigungen
+            \item<6-> \textit{breadth-first}:\par Breitet sich über alle Abzweigungen gleichmäßig aus
         \end{itemize}
     \end{itemize}
 \end{frame}
@@ -352,7 +352,7 @@ class Node {
 \savebox\pinguB{\tikz{\pingu[left eye shiny,silver medal,left wing raise,sign post left={\faHeart},hair=paletteB,monocle right]}}%
 \begin{frame}{Irrgärten}
     \begin{itemize}[<+(1)->]
-        \item Ein Labyrinth ist auch nur ein cooler Graph.\bigskip
+        \item Ein Labyrinth ist auch nur ein cooler Graph\bigskip
 \begin{center}
 \onslide<4->{\begin{tikzpicture}
 \Matrix{%
@@ -449,10 +449,10 @@ class Node {
 \begin{frame}{Abschließendes}
 \begin{itemize}[<+(1)->]
     \itemsep12pt
-    \item Dies war ein primär visueller Blick auf Traversierungen.
-    \item Es gibt vieeel mehr (z.B. die \say{Wirbeltraversierung}).
+    \item Dies war ein primär visueller Blick auf Traversierungen
+    \item Es gibt vieeel mehr (z.B. die \say{Wirbeltraversierung})
     \item Die Kenntnis über die iterative und rekursive Implementation ist nützlich!
-    \item Breiten- \& Tiefensuche helfen auch bei der Wegfindung.
+    \item Breiten- \& Tiefensuche helfen auch bei der Wegfindung
 \end{itemize}
 \end{frame}
 \SidebarReset
